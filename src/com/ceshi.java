@@ -10,4 +10,9 @@ public class ceshi {
     public String one(){
         return "one";
     }
+
+    @RequestMapping("player")
+    public String player(){
+        return "player";
+    }
 }

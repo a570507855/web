@@ -67,7 +67,8 @@
     <mvc:annotation-driven/>
 
     <mvc:resources location="/WEB-INF/js/" mapping="/js/**"></mvc:resources>
-    <mvc:resources location="/WEB-INF/css/" mapping="/css/**"></mvc:resources>
+    <mvc:resources location="/WEB-INF/video/" mapping="/video/**"></mvc:resources>
+    <mvc:resources location="/WEB-INF/icon/" mapping="/icon/**"></mvc:resources>
     <mvc:default-servlet-handler/>
 
     <!--<mvc:resources location="/" mapping="/js/**" />-->

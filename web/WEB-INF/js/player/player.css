@@ -1,0 +1,51 @@
+/*
+注：默认主轴即横轴，交叉轴即竖轴，当flex-direction设置为column时，主轴变为竖轴，交叉轴变为横轴
+容器属性
+flex-direction：定义主轴的方向
+flex-wrap：定义如何换行
+flex-flow：flex-direction和flex-wrap的简写
+justify-content：定义项目在主轴上的对齐方式
+align-items：定义项目在交叉轴轴上的对齐方式
+align-content：定义了多根轴线的对齐方式，如果项目只有一根轴线，该属性不起作用
+
+项目属性
+order：定义项目的排列顺序，默认0，数值越小，排列越靠前
+flex-grow：定义项目的放大比例，默认0，即如果存在剩余空间，也不放大
+flex-shrink：定义项目的缩小比例，默认1，即如果空间不足，该项目缩小
+flex-basis：定义项目占据的主轴空间，默认auto，即项目的本来大小
+flex：flex-grow, flex-shrink 和 flex-basis的简写，默认值0,1,auto，快捷值：auto(1 1 auto)，none(0 0 auto)
+align-self：允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性，默认值auto，即继承父元素的align-items属性，如果没父元素，等同于stretch
+*/
+body{
+    width: 100%;
+    height: 100%;
+}
+
+div{
+    border: 1px red solid;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.player-video{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.player-video-title{
+    height: 40px;
+}
+.player-video-body{
+    flex: auto;
+}
+.player-video-control{
+    height: 44px;
+    flex-direction: column;
+}
+.player-video-control-top{
+
+}
+.player-video-control-bottom{
+
+}
