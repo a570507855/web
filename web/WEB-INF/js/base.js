@@ -21,7 +21,6 @@
 
         //窗口大小改变回调事件
         $(window).resize(function () {
-            console.log(111)
         })
 
         //解析URL
