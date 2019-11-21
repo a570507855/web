@@ -1,17 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 2018-11-29
-  Time: 13:38
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>社会实践</title>
-    <link rel="stylesheet" type="text/css" href="../../js/layui-v2.4.5/layui/css/layui.css"/>
-    <script src="../../js/layui-v2.4.5/layui/layui.js"></script>
-    <script src="../../js/jquery-3.3.1.js"></script>
+    <script src="../../js/base.js"></script>
     <style>
         .content {
             width:98%;

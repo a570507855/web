@@ -9,9 +9,7 @@
 <html>
 <head>
     <title>eduPractice</title>
-    <link rel="stylesheet" type="text/css" href="../../js/layui-v2.4.5/layui/css/layui.css"/>
-    <script src="../../js/layui-v2.4.5/layui/layui.js"></script>
-    <script src="../../js/jquery-3.3.1.js"></script>
+    <script src="../../js/base.js"></script>
 </head>
 <body>
 
