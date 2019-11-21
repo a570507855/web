@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.CityMapper">
+
+    <select id="selectList" parameterType="com.pojo.City" resultType="map" >
+      SELECT * FROM city;
+    </select>
+
+    <insert id="insertCity" parameterType="com.pojo.City" >
+        INSERT INTO city (NAME) VALUES (#{name});
+    </insert>
+
+    <update id="updateCity" parameterType="com.pojo.City">
+        UPDATE city SET name = #{name} where id = #{id};
+    </update>
+
+    <delete id="deleteCity" parameterType="com.pojo.City">
+        DELETE FROM city WHERE id = #{id};
+    </delete>
+</mapper>
