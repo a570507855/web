@@ -5,17 +5,19 @@
 -->
 <Configuration status="WARN" monitorInterval="600">
 
-    <Properties>
-        <!-- 配置日志文件输出目录 -->
-        <Property name="LOG_HOME">./logs</Property>
-    </Properties>
+    <properties>
+        <!-- log打印到本地的路径 -->
+        <property name="LOG_HOME">D:/log4j2/mybatis/genertor/logs/</property>
+        <property name="ERROR_LOG_FILE_NAME">error</property>
+    </properties>
+
 
     <Appenders>
 
         <!--这个输出控制台的配置-->
         <Console name="Console" target="SYSTEM_OUT">
             <!-- 控制台只输出level及以上级别的信息(onMatch),其他的直接拒绝(onMismatch) -->
-            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
             <!-- 输出日志的格式 -->
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
         </Console>
@@ -60,7 +62,7 @@
 
     <Loggers>
         <!-- 配置日志的根节点 -->
-        <root level="info">
+        <root level="debug">
             <appender-ref ref="Console"/>
         </root>
 
@@ -72,17 +74,9 @@
         <logger name="org.jboss.netty" level="warn"/>
         <logger name="org.apache.http" level="warn"/>
 
-        <!-- 日志实例(info),其中'service-log'继承root,但是root将日志输出控制台,而'service-log'将日志输出到文件,通过属性'additivity="false"'将'service-log'的
-             的日志不再输出到控制台 -->
-        <logger name="sinfo_log" level="info" includeLocation="true" additivity="true">
-            <appender-ref ref="sinfo_appender"/>
-        </logger>
-
-        <!-- 日志实例(debug) -->
-        <logger name="sinfo_log" level="info" includeLocation="true" additivity="false">
-            <appender-ref ref="sinfo_debug_appender"/>
-        </logger>
-
+<!--        <logger name="com" level="debug" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>-->
     </Loggers>
 
 </Configuration>
