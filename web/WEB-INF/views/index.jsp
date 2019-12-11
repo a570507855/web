@@ -51,8 +51,7 @@
 </div>
 
 <script>
-    location.href="/book/one"
-
+    location.href='/book/query'
 </script>
 </body>
 </html>

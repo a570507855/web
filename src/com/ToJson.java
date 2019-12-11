@@ -5,9 +5,12 @@
 
 package com;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ToJson<T> {
     private List<T> obj = new ArrayList();
     private Object object;
@@ -23,6 +26,15 @@ public class ToJson<T> {
     private Integer wasteCount;
     private Object obj1;
     private boolean isTurn;
+
+    public ToJson() {
+    }
+
+    public ToJson(String msg) {
+        this.flag = false;
+        this.code = "0";
+        this.msg = msg;
+    }
 
     public Integer getNoReadCount() {
         return this.noReadCount;
@@ -80,19 +92,6 @@ public class ToJson<T> {
         this.isTurn = turn;
     }
 
-    public ToJson(int flag, String msg) {
-        if (flag == 0) {
-            this.flag = true;
-        } else {
-            this.flag = false;
-        }
-
-        this.msg = msg;
-    }
-
-    public ToJson() {
-    }
-
     public List<T> getObj() {
         return this.obj;
     }
@@ -122,7 +121,7 @@ public class ToJson<T> {
     }
 
     public void setFlag(int flag) {
-        if (flag == 0) {
+        if (flag == 1) {
             this.flag = true;
         } else {
             this.flag = false;
