@@ -3,3 +3,5 @@
 /build
 /.idea
 /out
+/src/gradle.properties
+/src/jdbc.properties
