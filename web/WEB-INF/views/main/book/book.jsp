@@ -30,6 +30,9 @@
         <h1>指定可访问cookie的主机名</h1>
         <p>document.cookie="userId=320; domain=cookieDomain"; 表示当前cookie能在同一个域下的不同主机使用</p>
     </div>
+    <div>
+        <button class="layui-btn layui-btn-normal" id="export">导出</button>
+    </div>
 </div>
 </body>
 <script>
@@ -45,6 +48,9 @@
     // })
     console.log('${sessionScope.username}')
     console.log(getCookie())
+    $('#export').on('click',function () {
+        location.href="/book/export"
+    })
     $.ajax({
         url:'/book/selectList',
         data:{

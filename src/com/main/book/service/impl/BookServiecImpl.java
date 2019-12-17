@@ -4,9 +4,17 @@ import com.ToJson;
 import com.main.book.dao.BookMapper;
 import com.main.book.model.Book;
 import com.main.book.service.BookService;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 @Service
@@ -77,6 +85,35 @@ public class BookServiecImpl implements BookService {
             e.printStackTrace();
         }
         return json;
+    }
+
+    @Override
+    public ToJson export(HttpServletResponse response, HttpServletRequest request) {
+        ToJson json = new ToJson("导出失败");
+        //创建excel文档对象
+        HSSFWorkbook wk = new HSSFWorkbook();
+        //创建excel表单
+        HSSFSheet sheet = wk.createSheet();
+        //创建excel行
+        HSSFRow row = sheet.createRow(0);
+        //创建excel单元格内容
+        HSSFCell cell = row.createCell(0);
+        //设置单元格的值
+        cell.setCellValue("你好啊");
+
+        try {
+            OutputStream os = response.getOutputStream();
+            response.reset();
+            response.setHeader("Content-disposition", "attachment; filename=details.xls");
+            response.setContentType("application/msexcel");
+            wk.write(os);
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return json;
+
     }
 
 }

@@ -87,4 +87,10 @@ public class BookController {
         return bookService.delete(id);
     }
 
+    @ResponseBody
+    @RequestMapping("export")
+    public ToJson export(HttpServletResponse response, HttpServletRequest request){
+        return bookService.export(response, request);
+    }
+
 }
