@@ -88,8 +88,10 @@ public class BookServiecImpl implements BookService {
     }
 
     @Override
-    public ToJson export(HttpServletResponse response, HttpServletRequest request) {
+    public ToJson export(HttpServletResponse response, Integer page, Integer limit, Book book) {
         ToJson json = new ToJson("导出失败");
+        List<Book> list = mapper.selectList(page, limit ,book);
+        json.setObj(list);
         //创建excel文档对象
         HSSFWorkbook wk = new HSSFWorkbook();
         //创建excel表单
@@ -97,9 +99,13 @@ public class BookServiecImpl implements BookService {
         //创建excel行
         HSSFRow row = sheet.createRow(0);
         //创建excel单元格内容
-        HSSFCell cell = row.createCell(0);
+        HSSFCell cell = row.createCell(1);
         //设置单元格的值
-        cell.setCellValue("你好啊");
+
+        for(Book _book:list){
+            System.out.println(_book.getName());
+        }
+
 
         try {
             OutputStream os = response.getOutputStream();
@@ -108,10 +114,10 @@ public class BookServiecImpl implements BookService {
             response.setContentType("application/msexcel");
             wk.write(os);
             os.close();
+            return  null;
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return json;
 
     }

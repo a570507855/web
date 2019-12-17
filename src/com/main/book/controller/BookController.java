@@ -89,8 +89,8 @@ public class BookController {
 
     @ResponseBody
     @RequestMapping("export")
-    public ToJson export(HttpServletResponse response, HttpServletRequest request){
-        return bookService.export(response, request);
+    public ToJson export(HttpServletResponse response, Integer page, Integer limit, Book book){
+        return bookService.export(response, page, limit, book);
     }
 
 }

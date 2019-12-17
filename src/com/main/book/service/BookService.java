@@ -17,6 +17,6 @@ public interface BookService {
 
     ToJson delete(String ids);
 
-    ToJson export(HttpServletResponse response, HttpServletRequest request);
+    ToJson export(@Param("response") HttpServletResponse response, @Param("page") Integer page, @Param("limit") Integer limit, @Param("book") Book book);
 
 }
