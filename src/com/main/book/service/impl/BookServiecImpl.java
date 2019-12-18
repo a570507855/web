@@ -23,7 +23,7 @@ public class BookServiecImpl implements BookService {
             json.setObj(list);
             json.setFlag(1);
             json.setMsg("查询成功");
-            json.setCode("1");
+            json.setCode("0");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,7 +37,7 @@ public class BookServiecImpl implements BookService {
             int i = mapper.inserts(book);
             if(i>0){
                 json.setFlag(1);
-                json.setCode("1");
+                json.setCode("0");
                 json.setMsg("新增成功");
             }
         } catch (Exception e) {
@@ -53,7 +53,7 @@ public class BookServiecImpl implements BookService {
             int i = mapper.updates(book);
             if(i > 0){
                 json.setFlag(1);
-                json.setCode("1");
+                json.setCode("0");
                 json.setMsg("更新成功");
             }
         } catch (Exception e) {
@@ -63,14 +63,14 @@ public class BookServiecImpl implements BookService {
     }
 
     @Override
-    public ToJson delete(String ids) {
+    public ToJson delete(String id) {
         ToJson json = new ToJson("删除失败");
         try {
-            String[] idArr = ids.split(",");
+            String[] idArr = id.split(",");
             int i = mapper.deletes(idArr);
             if(i>0){
                 json.setFlag(1);
-                json.setCode("1");
+                json.setCode("0");
                 json.setMsg("删除成功");
             }
         } catch (Exception e) {

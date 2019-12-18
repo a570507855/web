@@ -241,7 +241,7 @@
   </update>
 
   <select id="selectList" resultMap="BaseResultMap">
-    <bind name="pageLimit" value="page * limit"/>
+    <bind name="pageLimit" value="(page - 1) * limit"/>
     select
     <include refid="Base_Column_List"/>
     from book

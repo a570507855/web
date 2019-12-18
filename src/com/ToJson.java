@@ -32,7 +32,7 @@ public class ToJson<T> {
 
     public ToJson(String msg) {
         this.flag = false;
-        this.code = "0";
+        this.code = "1";
         this.msg = msg;
     }
 

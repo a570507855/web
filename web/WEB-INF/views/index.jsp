@@ -34,6 +34,10 @@
     </style>
 </head>
 <body>
+<div>
+    <a href="/book/query">book</a>
+    <a href="/webURL/webURL">webURL</a>
+</div>
 <div class="content">
     <div class="content-body">
         <div class="content-body-text">
@@ -48,10 +52,12 @@
 
         </div>
     </div>
+
 </div>
 
+
 <script>
-    location.href='/book/query'
+    /*location.href='/book/query'*/
 </script>
 </body>
 </html>

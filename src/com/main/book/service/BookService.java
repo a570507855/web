@@ -2,7 +2,6 @@ package com.main.book.service;
 
 import com.ToJson;
 import com.main.book.model.Book;
-import org.apache.ibatis.annotations.Param;
 
 public interface BookService {
 
@@ -12,6 +11,6 @@ public interface BookService {
 
     ToJson update(Book book);
 
-    ToJson delete(String ids);
+    ToJson delete(String id);
 
 }
