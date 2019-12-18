@@ -57,7 +57,7 @@ dependencies {
     mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.0'
     mybatisGenerator 'mysql:mysql-connector-java:8.0.18'
     compile group: 'tk.mybatis', name: 'mapper', version: '4.1.5'
-
+    compile group: 'org.apache.poi', name: 'poi', version: '4.1.1'
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
 }
 
