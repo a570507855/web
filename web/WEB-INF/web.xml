@@ -8,6 +8,22 @@
         <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
     </welcome-file-list>
 
+    <!--400(客户端错误)-->
+    <error-page>
+        <error-code>400</error-code>
+        <location>/WEB-INF/views/errorPage/400.jsp</location>
+    </error-page>
+    <!--404(页面不存在)-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/errorPage/404.jsp</location>
+    </error-page>
+    <!--500(服务端错误)-->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/errorPage/500.jsp</location>
+    </error-page>
+
     <!-- log4j2配置 -->
     <context-param>
         <param-name>log4jConfiguration</param-name>

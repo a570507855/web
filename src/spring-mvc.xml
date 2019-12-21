@@ -65,7 +65,7 @@
     </bean>
 
     <mvc:annotation-driven/>
-
+    <mvc:resources location="/WEB-INF/img/" mapping="/img/**"></mvc:resources>
     <mvc:resources location="/WEB-INF/js/" mapping="/js/**"></mvc:resources>
     <mvc:resources location="/WEB-INF/video/" mapping="/video/**"></mvc:resources>
     <mvc:resources location="/WEB-INF/icon/" mapping="/icon/**"></mvc:resources>
