@@ -1,63 +1,40 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>登录</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="个人,网页,许亦勇">
+    <meta name="description" content="许亦勇个人网页">
+    <meta http-equiv="refresh" content="1;url=/webURL/webURL" />
+    <title>首页</title>
     <script src="../js/base.js"></script>
-    <style>
-        body{
-            overflow: hidden;
-        }
-        .content{
-            width: 100%;
-            height: 100%;
-            border: 1px red solid;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .content-body{
-            width: 300px;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            background-color: #f1f1f1;
-            border-radius: 10px;
-            box-shadow: 10px 10px 5px #888888;
-        }
-        .content-body-text{
-            width: 90%;
-            display: flex;
-            
-        }
-    </style>
 </head>
 <body>
+<div >
+    <h1>设置cookie</h1>
+    <p>document.cookie = "userName=许亦勇;password=disueb11"</p>
+</div>
+<div >
+    <h1>获取cookie</h1>
+    <p>document.cookie 获得以分号分割的键值对字符串</p>
+</div>
+<div >
+    <h1>给cookie设置终止日期</h1>
+    <p>document.cookie="userId=828; expires=GMT_String"</p>
+</div>
+<div >
+    <h1>删除cookie</h1>
+    <p>document.cookie="userId=828; expires=GMT_String" 将时间设置为过去时间便可删除cookie</p>
+</div>
+<div >
+    <h1>指定可访问cookie的路径</h1>
+    <p>document.cookie="userId=320; path=/shop"; 表示当前cookie仅能在shop目录下使用，path=/表示整个网站可用</p>
+</div>
+<div >
+    <h1>指定可访问cookie的主机名</h1>
+    <p>document.cookie="userId=320; domain=cookieDomain"; 表示当前cookie能在同一个域下的不同主机使用</p>
+</div>
 <div>
-    <a href="/book/query">book</a>
-    <a href="/webURL/webURL">webURL</a>
+    <button type="button" class="layui-btn layui-btn-normal" id="export">导出</button>
 </div>
-<div class="content">
-    <div class="content-body">
-        <div class="content-body-text">
-            <img src="../icon/account.svg">
-            <input type="text">
-        </div>
-        <div class="content-body-text">
-            <img src="../icon/password.svg">
-            <input type="password">
-        </div>
-        <div class="content-body-bottom">
-
-        </div>
-    </div>
-
-</div>
-
-
-<script>
-    /*location.href='/book/query'*/
-</script>
 </body>
 </html>
