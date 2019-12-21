@@ -123,6 +123,8 @@ public interface WebURLMapper {
 
     List<WebURL> selectList(@Param("page") Integer page, @Param("limit") Integer limit, @Param("webURL") WebURL webURL);
 
+    long count(WebURL webURL);
+
     int inserts(WebURL webURL);
 
     int updates(WebURL webURL);

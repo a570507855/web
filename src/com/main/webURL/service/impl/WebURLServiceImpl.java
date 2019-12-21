@@ -3,7 +3,6 @@ package com.main.webURL.service.impl;
 import com.ToJson;
 import com.main.webURL.dao.WebURLMapper;
 import com.main.webURL.model.WebURL;
-import com.main.webURL.model.WebURLExample;
 import com.main.webURL.service.WebURLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +15,13 @@ public class WebURLServiceImpl implements WebURLService {
     @Autowired
     private WebURLMapper mapper;
 
+
     @Override
     public ToJson selectList(Integer page, Integer limit, WebURL webURL) {
         ToJson json = new ToJson("查询失败");
         try {
             List<WebURL> list = mapper.selectList(page, limit, webURL);
-            long count = mapper.countByExample(new WebURLExample());
+            long count = mapper.count(webURL);
             json.setFlag(1);
             json.setCode("0");
             json.setMsg("查询成功");

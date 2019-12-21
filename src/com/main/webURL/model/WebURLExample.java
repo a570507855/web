@@ -944,6 +944,146 @@ public class WebURLExample {
             return (Criteria) this;
         }
 
+        public Criteria andDescriptionIsNull() {
+            addCriterion("description is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIsNotNull() {
+            addCriterion("description is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionEqualTo(String value) {
+            addCriterion("description =", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotEqualTo(String value) {
+            addCriterion("description <>", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThan(String value) {
+            addCriterion("description >", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionGreaterThanOrEqualTo(String value) {
+            addCriterion("description >=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThan(String value) {
+            addCriterion("description <", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLessThanOrEqualTo(String value) {
+            addCriterion("description <=", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionLike(String value) {
+            addCriterion("description like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotLike(String value) {
+            addCriterion("description not like", value, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionIn(List<String> values) {
+            addCriterion("description in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotIn(List<String> values) {
+            addCriterion("description not in", values, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionBetween(String value1, String value2) {
+            addCriterion("description between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andDescriptionNotBetween(String value1, String value2) {
+            addCriterion("description not between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsIsNull() {
+            addCriterion("keywords is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsIsNotNull() {
+            addCriterion("keywords is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsEqualTo(String value) {
+            addCriterion("keywords =", value, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsNotEqualTo(String value) {
+            addCriterion("keywords <>", value, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsGreaterThan(String value) {
+            addCriterion("keywords >", value, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsGreaterThanOrEqualTo(String value) {
+            addCriterion("keywords >=", value, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsLessThan(String value) {
+            addCriterion("keywords <", value, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsLessThanOrEqualTo(String value) {
+            addCriterion("keywords <=", value, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsLike(String value) {
+            addCriterion("keywords like", value, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsNotLike(String value) {
+            addCriterion("keywords not like", value, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsIn(List<String> values) {
+            addCriterion("keywords in", values, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsNotIn(List<String> values) {
+            addCriterion("keywords not in", values, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsBetween(String value1, String value2) {
+            addCriterion("keywords between", value1, value2, "keywords");
+            return (Criteria) this;
+        }
+
+        public Criteria andKeywordsNotBetween(String value1, String value2) {
+            addCriterion("keywords not between", value1, value2, "keywords");
+            return (Criteria) this;
+        }
+
         public Criteria andTitleIsNull() {
             addCriterion("title is null");
             return (Criteria) this;

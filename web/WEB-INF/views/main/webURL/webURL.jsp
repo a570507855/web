@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="个人,网页,爬虫">
+    <meta name="description" content="个人网页，将爬虫获取到的数据进行表格展示">
     <title>webURL</title>
     <script src="../../../js/base.js"></script>
     <style>
@@ -36,6 +39,12 @@
             <div class="layui-inline  margin-right"  style="width: 120px">
                 <input id="title" placeholder="标题" class="layui-input" onkeydown="keyEvent(event)">
             </div>
+            <div class="layui-inline  margin-right"  style="width: 120px">
+                <input id="description" placeholder="描述" class="layui-input" onkeydown="keyEvent(event)">
+            </div>
+            <div class="layui-inline  margin-right"  style="width: 120px">
+                <input id="keywords" placeholder="关键字" class="layui-input" onkeydown="keyEvent(event)">
+            </div>
             <div class="layui-inline  margin-right"  style="width: 200px">
                 <input id="content" placeholder="内容" class="layui-input" onkeydown="keyEvent(event)">
             </div>
@@ -48,6 +57,8 @@
         var table = layui.table;
         var statusCode = '',
             title = '',
+            description = '',
+            keywords = '',
             content = '';
         table.render({
             elem: '#demo'
@@ -58,26 +69,31 @@
             }
             ,cols: [[ //表头
                 {type: 'checkbox', fixed: 'left'}
-                , {field: 'url', title: '网址', minWidth: 100}
-                , {field: 'host', title: '主机名', minWidth: 100}
+                , {field: 'url', title: '网址',templet:'<div><a href="{{d.url}}" style="">{{d.url}}</a></div>', minWidth: 420}
+                , {field: 'host', title: '主机名', minWidth: 180}
+                , {field: 'statusCode', title: '响应状态码', minWidth: 100}
+                , {field: 'title', title: '标题', minWidth: 580}
+                , {field: 'description', title: '描述', minWidth: 580}
+                , {field: 'keywords', title: '关键字', minWidth: 580}
+                , {field: 'content', title: '内容', templet:'<div><input class="layui-input" value="{{d.content}}"></div>', minWidth: 400}
                 , {field: 'protocol', title: '协议', minWidth: 100}
                 , {field: 'subdomain', title: '子域', minWidth: 100}
                 , {field: 'domain', title: '域', minWidth: 100}
                 , {field: 'suffix', title: '后缀', minWidth: 100}
-                , {field: 'statusCode', title: '响应状态码', minWidth: 100}
                 , {field: 'encoding', title: '文本编码', minWidth: 100}
-                , {field: 'type', title: '类型', minWidth: 100}
-                , {field: 'title', title: '标题', minWidth: 100}
-                , {field: 'content', title: '内容', minWidth: 200}
+                , {field: 'type', title: '类型', minWidth: 200}
                 /*, {fixed: 'right', title: '操作', width: 300, toolbar: '#barDemo'}*/
             ]]
             ,done : function () {
                 $('.layui-table-fixed-r').removeClass('layui-hide');
                 $('#title').val(title)
+                $('#description').val(description)
+                $('#keywords').val(keywords)
                 $('#content').val(content)
                 $('#statusCode').val(statusCode)
             }
             ,page: true
+            ,limit:20
             ,id:'testReload'   //table唯一标识,可用于重载table
             ,parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
                 return {
@@ -138,6 +154,8 @@
                     break;
                 case 'search' :
                     title = $('#title').val()
+                    description = $('#description').val()
+                    keywords = $('#keywords').val()
                     content = $('#content').val()
                     statusCode = $('#statusCode').val()
                     //表格重载
@@ -148,6 +166,8 @@
                         where:{
                             statusCode:statusCode,
                             title:title,
+                            description:description,
+                            keywords:keywords,
                             content:content
                         }
                     })
