@@ -40,7 +40,7 @@
     document_number 证件号码
     document_by_hand    手持证件照
     document_by_front   证件正面照
-    document_by_front   证件背面照
+    document_by_back   证件背面照
 
 
 --%>

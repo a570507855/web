@@ -76,6 +76,7 @@ task mybatisGenerate{
         ant.properties['modelPackage'] = project['modelPackage']
         ant.properties['mapperPackage'] = project['mapperPackage']
         ant.properties['sqlMapperPackage'] = project['sqlMapperPackage']
+        ant.properties['schema'] = project['schema']
         ant.properties['tableName'] = project['tableName']
         ant.properties['className'] = project['className']
         ant.taskdef(
@@ -98,6 +99,7 @@ task mybatisGenerate{
                 propertyref(name: 'modelPackage')
                 propertyref(name: 'mapperPackage')
                 propertyref(name: 'sqlMapperPackage')
+                propertyref(name: 'schema')
                 propertyref(name: 'tableName')
                 propertyref(name: 'className')
             }

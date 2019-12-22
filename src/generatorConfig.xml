@@ -18,6 +18,8 @@
                         connectionURL="${connectionURL}"
                         userId="${userId}"
                         password="${password}">
+
+            <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
         <javaTypeResolver >
@@ -44,17 +46,12 @@
         </javaClientGenerator>
 
         <!-- 姣忎竴涓暟鎹簱琛ㄩ兘闇€瑕佸缓绔嬩竴涓搴旂殑table瀛楁 -->
-        <table  tableName="${tableName}" domainObjectName="${className}" >
+        <table schema="${schema}" tableName="${tableName}" domainObjectName="${className}"
+               enableCountByExample="false"
+                enableDeleteByExample="false"
+                enableSelectByExample="false"
+                enableUpdateByExample="false">
         </table>
-       <!-- <table  tableName="kg_signature" domainObjectName="KgSignature" >
-        </table>
-        <table  tableName="kg_signkey" domainObjectName="KgSignKey" >
-        </table>
-        <table  tableName="kg_relation_keysign" domainObjectName="KgRelationKeySign" >
-        </table>
-        <table  tableName="kg_relation_keyuser" domainObjectName="KgRelationKeyUser" >
-        </table>-->
-
     </context>
 
 </generatorConfiguration>

@@ -18,7 +18,7 @@ public class ToJson<T> {
     private String msg;
     private String code;
     private String token;
-    private Integer totleNum;
+    private long totleNum;
     private Integer draftsCount;
     private Integer hairboxCount;
     private Integer noReadCount;
@@ -129,11 +129,11 @@ public class ToJson<T> {
 
     }
 
-    public Integer getTotleNum() {
+    public long getTotleNum() {
         return this.totleNum;
     }
 
-    public void setTotleNum(Integer totleNum) {
+    public void setTotleNum(long totleNum) {
         this.totleNum = totleNum;
     }
 
