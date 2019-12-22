@@ -11,21 +11,18 @@
     <script src="/js/base.js"></script>
 </head>
 <body>
-    <form class="content layui-form">
+    <form class="content layui-form" method="post" target="_parent" enctype="multipart/form-data">
         <div class="text-center">
             <h3>登录</h3>
         </div>
         <div>
-            <input type="text" lay-verify="required|username" name="username" class="layui-input" placeholder="昵称">
+            <input type="text" class="layui-input" lay-verify="required|phoneOrEmail" placeholder="手机号/邮箱" id="accountNumber">
         </div>
         <div>
-            <input type="text" class="layui-input" lay-verify="required|phoneOrEmail" placeholder="手机号/邮箱">
+            <input type="password" class="layui-input" lay-verify="required|pass"  placeholder="密码" id="password">
         </div>
         <div>
-            <input type="password" class="layui-input" lay-verify="required|pass"  placeholder="密码">
-        </div>
-        <div>
-            <button type="button" lay-submit lay-filter="*" class="layui-btn layui-btn-sm" lay-event="*" style="width: 100%" >登录</button>
+            <button type="submit" lay-submit lay-filter="*" class="layui-btn layui-btn-sm" lay-event="*" style="width: 100%" >登录</button>
         </div>
         <div>
             <p class="text-muted text-center"> <a class="a" href="/views/changePassword">忘记密码了？</a> | <a class="a" href="/views/register">注册一个新账号</a>
@@ -37,7 +34,37 @@
         var form = layui.form;
 
         form.on("submit(*)",function (data) {
-
+            var accountNumber = $('#accountNumber').val(),
+                password = $('#password').val();
+            if(/^1\d{10}$/.test(accountNumber)){
+                data={
+                    phoneNumber:accountNumber,
+                    password:password
+                }
+            }
+            else {
+                data={
+                    mailbox:accountNumber,
+                    password:password
+                }
+            }
+            $.ajax({
+                url:'/user/isLogin',
+                data:data,
+                type:'post',
+                success:function (res) {
+                    if(res.flag){
+                        layer.msg("登录成功",{icon:1})
+                        setTimeout(function () {
+                            location.href='/user/user'
+                        },3000)
+                    }
+                    else{
+                        layer.msg(res.msg,{icon:2})
+                    }
+                }
+            })
+            return false;
         })
 
         //自定义表单验证

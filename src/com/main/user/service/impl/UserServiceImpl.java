@@ -79,4 +79,35 @@ public class UserServiceImpl implements UserService {
         }
         return json;
     }
+
+    @Override
+    public ToJson login(UserWithBLOBs user) {
+        ToJson json = new ToJson("登录失败");
+        try {
+            long phoneNumber = user.getPhoneNumber();
+            String maibox = user.getMailbox();
+            String password = user.getPassword();
+            long i = userMapper.countByLogin(phoneNumber, maibox);
+            if(i <1){
+                json.setMsg("账号不存在");
+            }
+            else{
+                List<UserWithBLOBs> list = userMapper.selectList(null,null, user);
+                if(list.isEmpty()){
+                    json.setMsg("密码错误");
+                }
+                else{
+                    json.setFlag(1);
+                    json.setCode("0");
+                    json.setMsg("可以登录");
+                    UserWithBLOBs user1 =  list.get(0);
+                    user1.setIsOnline(true);
+                    userMapper.updates(user1);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
 }

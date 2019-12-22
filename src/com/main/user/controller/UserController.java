@@ -43,4 +43,10 @@ public class UserController {
     public ToJson delete(String id){
         return userService.delete(id);
     }
+
+    @ResponseBody
+    @RequestMapping("isLogin")
+    public ToJson isLogin(UserWithBLOBs user){
+        return userService.login(user);
+    }
 }

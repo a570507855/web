@@ -12,4 +12,6 @@ public interface UserService {
     ToJson update(UserWithBLOBs user);
 
     ToJson delete(String id);
+
+    ToJson login(UserWithBLOBs user);
 }

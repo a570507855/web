@@ -67,6 +67,8 @@ public interface UserMapper {
 
     long count(UserWithBLOBs user);
 
+    long countByLogin(@Param("phoneNumber") long phoneNumber, @Param("maibox") String maibox);
+
     int inserts(UserWithBLOBs user);
 
     int updates(UserWithBLOBs user);

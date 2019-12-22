@@ -419,7 +419,7 @@
         and sex = #{user.sex,jdbcType=BIT}
       </if>
       <if test="user.birthday != null and user.birthday != ''">
-        andbirthday = #{user.birthday,jdbcType=DATE}
+        and birthday = #{user.birthday,jdbcType=DATE}
       </if>
       <if test="user.signature != null and user.signature != ''">
         and signature = #{user.signature,jdbcType=CHAR}
@@ -497,7 +497,7 @@
         and sex = #{sex,jdbcType=BIT}
       </if>
       <if test="birthday != null and birthday != ''">
-        andbirthday = #{birthday,jdbcType=DATE}
+        and birthday = #{birthday,jdbcType=DATE}
       </if>
       <if test="signature != null and signature != ''">
         and signature = #{signature,jdbcType=CHAR}
@@ -547,6 +547,17 @@
     </where>
   </select>
 
+  <select id="countByLogin" resultType="long">
+    select count(*) from user
+    <where>
+      <if test="phoneNumber != null and phoneNumber != ''">
+        phone_number = #{phoneNumber,jdbcType=BIGINT}
+      </if>
+      <if test="maibox != null and maibox != ''">
+        or maibox = #{maibox,jdbcType=CHAR}
+      </if>
+    </where>
+  </select>
   <insert id="inserts">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
