@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="keywords" content="个人,网页,许亦勇">
     <meta name="description" content="许亦勇个人网页">
-    <meta http-equiv="refresh" content="1;url=/user/user" />
+    <meta http-equiv="refresh" content="0.1;url=/views/login" />
     <title>首页</title>
-    <script src="../js/base.js"></script>
+    <script src="/js/base.js"></script>
 </head>
 <body>
 <div >

@@ -5,7 +5,7 @@
     <meta name="keywords" content="用户表">
     <meta name="description" content="用户数据表">
     <title>用户表</title>
-    <script src="../../../js/base.js"></script>
+    <script src="/js/base.js"></script>
     <style>
         .margin-right {
             margin-right: 5px;

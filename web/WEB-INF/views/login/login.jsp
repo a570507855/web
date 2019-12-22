@@ -5,42 +5,74 @@
     <meta name="keywords" content="登陆">
     <meta name="description" content="登陆界面">
     <title>登陆</title>
-    <script src="../js/base.js"></script>
+    <link rel='stylesheet' type="text/css" href="/css/base.css">
+    <link rel='stylesheet' type="text/css" href="/css/login/login.css">
+    <script src="/js/login/login.js"></script>
+    <script src="/js/base.js"></script>
 </head>
 <body>
-
+    <form class="content layui-form">
+        <div class="text-center">
+            <h3>登录</h3>
+        </div>
+        <div>
+            <input type="text" lay-verify="required|username" name="username" class="layui-input" placeholder="昵称">
+        </div>
+        <div>
+            <input type="text" class="layui-input" lay-verify="required|phoneOrEmail" placeholder="手机号/邮箱">
+        </div>
+        <div>
+            <input type="password" class="layui-input" lay-verify="required|pass"  placeholder="密码">
+        </div>
+        <div>
+            <button type="button" lay-submit lay-filter="*" class="layui-btn layui-btn-sm" lay-event="*" style="width: 100%" >登录</button>
+        </div>
+        <div>
+            <p class="text-muted text-center"> <a class="a" href="/views/changePassword">忘记密码了？</a> | <a class="a" href="/views/register">注册一个新账号</a>
+        </div>
+    </form>
 </body>
+<script>
+    layui.use('form',function () {
+        var form = layui.form;
+
+        form.on("submit(*)",function (data) {
+
+        })
+
+        //自定义表单验证
+        form.verify({
+            username: function(value, item){ //value：表单的值、item：表单的DOM对象
+                if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+                    return '用户名不能有特殊字符';
+                }
+                if(/(^\_)|(\__)|(\_+$)/.test(value)){
+                    return '用户名首尾不能出现下划线\'_\'';
+                }
+                if(/^\d+\d+\d$/.test(value)){
+                    return '用户名不能全为数字';
+                }
+            }
+            ,phoneOrEmail:function (value, item) {
+                //如果全是数字则进行手机号判断
+                if(/\D/.test(value)){
+                    if(!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)){
+                        return "邮箱格式不正确"
+                    }
+                }
+                else{
+                    if(!/^1\d{10}$/.test(value)){
+                        return "请输入正确的手机号"
+                    }
+                }
+            }
+            //我们既支持上述函数式的方式，也支持下述数组的形式
+            //数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
+            ,pass: [
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+        });
+    })
+</script>
 </html>
-<%--
-    id          自增id
-    username    用户名
-    userid      用户id（用于唯一标识）
-    phone_number 手机号
-    mailbox     邮箱
-    password    密码
-
-    nickname    昵称
-    sex         性别
-    birthday    生日
-    signature   个性签名
-    head_portrait   头像
-
-    currency    货币
-    is_member   是否会员
-    is_online   是否在线
-    is_borbid_login     是否禁止登录
-
-
-    last_login_time     上次登录时间
-    last_pass_time      上次修改密码时间
-    registration_time   注册时间
-
-    real_name   真实姓名
-    document_type   证件类型
-    document_number 证件号码
-    document_by_hand    手持证件照
-    document_by_front   证件正面照
-    document_by_back   证件背面照
-
-
---%>
