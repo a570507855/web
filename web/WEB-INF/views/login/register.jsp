@@ -59,9 +59,6 @@
                     }
                     else{
                         layer.msg("注册失败",{icon:2,offset:['45%','45%']})
-                        setTimeout(function () {
-                            location.href='/views/login'
-                        },3000)
                     }
                 }
             })

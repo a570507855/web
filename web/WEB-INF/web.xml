@@ -5,7 +5,7 @@
          version="4.0">
     <!--设置首页-->
     <welcome-file-list>
-        <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+        <welcome-file>/WEB-INF/views/login/login.jsp</welcome-file>
     </welcome-file-list>
 
     <!--400(客户端错误)-->

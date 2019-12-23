@@ -7,6 +7,7 @@ import com.main.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,6 +36,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ToJson insert(UserWithBLOBs user) {
+        user.setRegistrationTime(new Date());
         ToJson json = new ToJson("新增失败");
         try {
             int i = userMapper.inserts(user);

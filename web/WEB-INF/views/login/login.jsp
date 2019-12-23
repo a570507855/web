@@ -16,10 +16,10 @@
             <h3>登录</h3>
         </div>
         <div>
-            <input type="text" class="layui-input" lay-verify="required|phoneOrEmail" placeholder="手机号/邮箱" id="accountNumber">
+            <input type="text" class="layui-input" lay-verify="required|phoneOrEmail" placeholder="手机号/邮箱" id="accountNumber" value="15259207770">
         </div>
         <div>
-            <input type="password" class="layui-input" lay-verify="required|pass"  placeholder="密码" id="password">
+            <input type="password" class="layui-input" lay-verify="required|pass"  placeholder="密码" id="password" value="disueb11">
         </div>
         <div>
             <button type="submit" lay-submit lay-filter="*" class="layui-btn layui-btn-sm" lay-event="*" style="width: 100%" >登录</button>
@@ -56,8 +56,8 @@
                     if(res.flag){
                         layer.msg("登录成功",{icon:1})
                         setTimeout(function () {
-                            location.href='/user/user'
-                        },3000)
+                            location.href='/views/home'
+                        },1500)
                     }
                     else{
                         layer.msg(res.msg,{icon:2})

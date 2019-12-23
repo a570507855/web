@@ -25,4 +25,10 @@ public class JspController {
         return "login/changePassword";
     }
 
+    //首页
+    @RequestMapping("home")
+    public String home(){
+        return "main/home";
+    }
+
 }

@@ -418,7 +418,7 @@
       <if test="user.sex != null and user.sex != ''">
         and sex = #{user.sex,jdbcType=BIT}
       </if>
-      <if test="user.birthday != null and user.birthday != ''">
+      <if test="user.birthday != null">
         and birthday = #{user.birthday,jdbcType=DATE}
       </if>
       <if test="user.signature != null and user.signature != ''">
@@ -436,13 +436,13 @@
       <if test="user.isBorbidLogin != null and user.isBorbidLogin != ''">
         and is_borbid_login = #{user.isBorbidLogin,jdbcType=BIT}
       </if>
-      <if test="user.lastLoginTime != null and user.lastLoginTime != ''">
+      <if test="user.lastLoginTime != null">
         and last_login_time = #{user.lastLoginTime,jdbcType=TIMESTAMP}
       </if>
-      <if test="user.lastPassTime != null and user.lastPassTime != ''">
+      <if test="user.lastPassTime != null">
         and last_pass_time = #{user.lastPassTime,jdbcType=TIMESTAMP}
       </if>
-      <if test="user.registrationTime != null and user.registrationTime != ''">
+      <if test="user.registrationTime != null">
         and registration_time like concat(#{user.registrationTime,jdbcType=TIMESTAMP},'%')
       </if>
       <if test="user.realName != null and user.realName != ''">
@@ -496,7 +496,7 @@
       <if test="sex != null and sex != ''">
         and sex = #{sex,jdbcType=BIT}
       </if>
-      <if test="birthday != null and birthday != ''">
+      <if test="birthday != null">
         and birthday = #{birthday,jdbcType=DATE}
       </if>
       <if test="signature != null and signature != ''">
@@ -514,13 +514,13 @@
       <if test="isBorbidLogin != null and isBorbidLogin != ''">
         and is_borbid_login = #{isBorbidLogin,jdbcType=BIT}
       </if>
-      <if test="lastLoginTime != null and lastLoginTime != ''">
+      <if test="lastLoginTime != null">
         and last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP}
       </if>
-      <if test="lastPassTime != null and lastPassTime != ''">
+      <if test="lastPassTime != null">
         and last_pass_time = #{lastPassTime,jdbcType=TIMESTAMP}
       </if>
-      <if test="registrationTime != null and registrationTime != ''">
+      <if test="registrationTime != null">
         and registration_time like concat(#{registrationTime,jdbcType=TIMESTAMP},'%')
       </if>
       <if test="realName != null and realName != ''">
@@ -585,7 +585,7 @@
       <if test="sex != null and sex != ''">
         sex,
       </if>
-      <if test="birthday != null and birthday != ''">
+      <if test="birthday != null">
         birthday,
       </if>
       <if test="signature != null and signature != ''">
@@ -603,13 +603,13 @@
       <if test="isBorbidLogin != null and isBorbidLogin != ''">
         is_borbid_login,
       </if>
-      <if test="lastLoginTime != null and lastLoginTime != ''">
+      <if test="lastLoginTime != null">
         last_login_time,
       </if>
-      <if test="lastPassTime != null and lastPassTime != ''">
+      <if test="lastPassTime != null">
         last_pass_time,
       </if>
-      <if test="registrationTime != null and registrationTime != ''">
+      <if test="registrationTime != null">
         registration_time,
       </if>
       <if test="realName != null and realName != ''">
@@ -659,7 +659,7 @@
       <if test="sex != null and sex != ''">
         #{sex,jdbcType=BIT},
       </if>
-      <if test="birthday != null and birthday != ''">
+      <if test="birthday != null">
         #{birthday,jdbcType=DATE},
       </if>
       <if test="signature != null and signature != ''">
@@ -677,13 +677,13 @@
       <if test="isBorbidLogin != null and isBorbidLogin != ''">
         #{isBorbidLogin,jdbcType=BIT},
       </if>
-      <if test="lastLoginTime != null and lastLoginTime != ''">
+      <if test="lastLoginTime != null">
         #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastPassTime != null and lastPassTime != ''">
+      <if test="lastPassTime != null">
         #{lastPassTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="registrationTime != null and registrationTime != ''">
+      <if test="registrationTime != null">
         #{registrationTime,jdbcType=TIMESTAMP},
       </if>
       <if test="realName != null and realName != ''">
@@ -734,7 +734,7 @@
       <if test="sex != null and sex != ''">
         sex = #{sex,jdbcType=BIT},
       </if>
-      <if test="birthday != null and birthday != ''">
+      <if test="birthday != null">
         birthday = #{birthday,jdbcType=DATE},
       </if>
       <if test="signature != null and signature != ''">
@@ -752,13 +752,13 @@
       <if test="isBorbidLogin != null and isBorbidLogin != ''">
         is_borbid_login = #{isBorbidLogin,jdbcType=BIT},
       </if>
-      <if test="lastLoginTime != null and lastLoginTime != ''">
+      <if test="lastLoginTime != null">
         last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastPassTime != null and lastPassTime != ''">
+      <if test="lastPassTime != null">
         last_pass_time = #{lastPassTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="registrationTime != null and registrationTime != ''">
+      <if test="registrationTime != null">
         registration_time = #{registrationTime,jdbcType=TIMESTAMP},
       </if>
       <if test="realName != null and realName != ''">

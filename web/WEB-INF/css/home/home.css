@@ -1,0 +1,7 @@
+body{
+    background-color: #f3f3f4;
+    background-image: url("/img/home/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
