@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,9 @@
     <script src="/js/base.js"></script>
 </head>
 <body>
-    <div></div>
+    <div class="container">
+        <a href="http://www.baidu.com">百度</a>
+    </div>
 </body>
 <script>
 

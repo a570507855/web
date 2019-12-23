@@ -24,7 +24,10 @@
     </style>
 </head>
 <body>
-<table class="layui-hide" id="demo" lay-filter="demo" lay-even></table>
+<div class="container">
+    <table class="layui-hide" id="demo" lay-filter="demo" lay-even></table>
+</div>
+
 </body>
 <script id="toolbarDemo" type="text/html">
     <div class="flex-toolbar">
