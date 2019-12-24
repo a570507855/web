@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <meta name="keywords" content="用户表">
     <meta name="description" content="用户数据表">
     <title>用户表</title>
-    <script src="/js/base.js"></script>
+    <jsp:include page="/views/resources"/>
     <style>
         .margin-right {
             margin-right: 5px;

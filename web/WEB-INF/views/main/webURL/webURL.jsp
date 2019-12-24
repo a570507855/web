@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <meta name="keywords" content="个人,网页,爬虫">
     <meta name="description" content="个人网页，将爬虫获取到的数据进行表格展示">
     <title>webURL</title>
-    <script src="/js/base.js"></script>
+    <jsp:include page="/views/resources"/>
     <style>
         .margin-right {
             margin-right: 5px;

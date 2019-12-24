@@ -1,14 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <meta name="keywords" content="登陆">
     <meta name="description" content="登陆界面">
     <title>登陆</title>
-    <link rel='stylesheet' type="text/css" href="/css/base.css">
+    <jsp:include page="/views/resources"/>
     <link rel='stylesheet' type="text/css" href="/css/login/login.css">
     <script src="/js/login/login.js"></script>
-    <script src="/js/base.js"></script>
 </head>
 <body>
     <form class="content layui-form" method="post" target="_parent" enctype="multipart/form-data">
@@ -28,6 +27,8 @@
             <p class="text-muted text-center"> <a class="a" href="/views/changePassword">忘记密码了？</a> | <a class="a" href="/views/register">注册一个新账号</a>
         </div>
     </form>
+
+<%@ include file="/WEB-INF/views/fixed/footer.jsp"%>
 </body>
 <script>
     layui.use('form',function () {

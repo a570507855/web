@@ -1,7 +1,6 @@
-.text-center{
-    text-align: center;
-}
-
-.a{
-    color: #337ab7;
+/*实现鼠标悬浮下拉菜单*/
+li:hover .dropdown-menu {display: block;}
+/*禁用下拉菜单链接的点击事件*/
+.dropdown-toggle{
+    pointer-events: none;
 }

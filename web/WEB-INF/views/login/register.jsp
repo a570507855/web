@@ -1,14 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <meta name="keywords" content="注册">
     <meta name="description" content="注册界面">
     <title>注册</title>
-    <link rel='stylesheet' type="text/css" href="/css/base.css">
+    <jsp:include page="/views/resources"/>
     <link rel='stylesheet' type="text/css" href="/css/login/login.css">
     <script src="/js/login/login.js"></script>
-    <script src="/js/base.js"></script>
 </head>
 <body>
 

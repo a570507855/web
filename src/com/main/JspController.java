@@ -25,10 +25,30 @@ public class JspController {
         return "login/changePassword";
     }
 
+    //头部
+    @RequestMapping("head")
+    public String head(){
+        return "fixed/head";
+    }
+
+    //底部
+    @RequestMapping("footer")
+    public String footer(){
+        return "fixed/footer";
+    }
+
+    //静态资源文件
+    @RequestMapping("resources")
+    public String resources(){
+        return "fixed/resources";
+    }
+
     //首页
     @RequestMapping("home")
     public String home(){
         return "main/home";
     }
+
+
 
 }

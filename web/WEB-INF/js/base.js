@@ -1,12 +1,3 @@
-    /*清缓存*/
-    document.write("<meta http-equiv='Pragma' content='no-cache'>");
-    /*用于自适应不同平台，(放于content中)user-scalable=no可以禁用其缩放，maximum-scale=1.0 与 user-scalable=no 一起使用，这样禁用缩放功能后，用户只能滚动屏幕*/
-    document.write("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
-    document.write("<script type='text/javascript' src='../js/jquery-3.4.1.min.js'></script>");
-    document.write("<script type='text/javascript' src='../js/layui-v2.5.5/layui/layui.js'></script>");
-    document.write("<link rel='stylesheet' href='../js/layui-v2.5.5/layui/css/layui.css' type='text/css'>");
-    document.write("<link rel='stylesheet' href='../js/bootstrap-4.4.1/css/bootstrap.min.css' type='text/css'>");
-    /*async 可以用于异步加载文件*/
 
     //当页面完全加载所有内容后触发事件
     window.onload=function () {
