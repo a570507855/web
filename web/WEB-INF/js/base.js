@@ -37,6 +37,9 @@
         if(path){
             str += ';path='+path
         }
+        else{
+            str += ';path=/'
+        }
         if(domain){
             str += ';domain='+domain
         }
@@ -60,18 +63,7 @@
 
     //删除cookie
     function delCookie(cookie,path, domain) {
-        var date = new Date(),
-            str = cookie;
-        date.setTime(date.getTime()-1000);
-        var time = date.toUTCString()
-        str += ';expires='+time
-        if(path){
-            str += ';path='+path
-        }
-        if(domain){
-            str += ';domain='+domain
-        }
-        document.cookie = str
+        setCookie(cookie,-1,path,domain)
     }
     //解析URL
     function getRequest() {

@@ -1,3 +1,4 @@
+<%@ page import="org.apache.poi.ss.formula.functions.Count" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -65,6 +66,9 @@
                 <strong>浅灰色!</strong>浅灰色提示框。
         </div>
     </div>
+    <%
+        out.println(application.getAttribute("ceshi"));
+    %>
     <jsp:include page="/views/footer"/>
 </body>
 <script>

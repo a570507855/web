@@ -128,6 +128,9 @@ public class ToJson<T> {
         }
 
     }
+    public boolean getFlag() {
+        return this.flag;
+    }
 
     public long getTotleNum() {
         return this.totleNum;

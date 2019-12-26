@@ -43,12 +43,17 @@ public class JspController {
         return "fixed/resources";
     }
 
+    //jsp学习笔记
+    @RequestMapping("jsp")
+    public String jsp(){
+        return "main/studyNotes/jsp";
+    }
+
+
     //首页
     @RequestMapping("home")
     public String home(){
         return "main/home";
     }
-
-
 
 }

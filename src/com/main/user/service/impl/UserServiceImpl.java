@@ -7,6 +7,9 @@ import com.main.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -83,33 +86,53 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ToJson login(UserWithBLOBs user) {
-        ToJson json = new ToJson("登录失败");
-        try {
-            long phoneNumber = user.getPhoneNumber();
-            String maibox = user.getMailbox();
-            String password = user.getPassword();
-            long i = userMapper.countByLogin(phoneNumber, maibox);
-            if(i <1){
-                json.setMsg("账号不存在");
-            }
-            else{
-                List<UserWithBLOBs> list = userMapper.selectList(null,null, user);
-                if(list.isEmpty()){
-                    json.setMsg("密码错误");
-                }
-                else{
-                    json.setFlag(1);
-                    json.setCode("0");
-                    json.setMsg("可以登录");
-                    UserWithBLOBs user1 =  list.get(0);
-                    user1.setIsOnline(true);
-                    userMapper.updates(user1);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return json;
+    public void login(HttpServletRequest request, HttpServletResponse response) {
+
     }
+
+    @Override
+    public boolean isRegister(String accountNumber) {
+        long phoneNumber = 0;
+        String maibox = "";
+        if(isNumer(accountNumber)){
+            phoneNumber = Long.parseLong(accountNumber);
+
+        }
+        else{
+            maibox = accountNumber;
+        }
+        long i = userMapper.countByLogin(phoneNumber, maibox);
+        return i != 0;
+    }
+
+    @Override
+    public boolean isPass(String accountNumber, String password) {
+        long phoneNumber = 0;
+        String maibox = "";
+        UserWithBLOBs user = new UserWithBLOBs();
+        long count = 0;
+        user.setPassword(password);
+        if(isNumer(accountNumber)){
+            phoneNumber = Long.parseLong(accountNumber);
+            user.setPhoneNumber(phoneNumber);
+            count = userMapper.count(user);
+        }
+        else{
+            maibox = accountNumber;
+            user.setMailbox(maibox);
+            count = userMapper.count(user);
+        }
+        return isRegister(accountNumber) && count != 0;
+    }
+
+    public static boolean isNumer(String str) {
+        String bigStr;
+        try {
+            bigStr = new BigDecimal(str).toString();
+        } catch (Exception e) {
+            return false;//异常 说明包含非数字。
+        }
+        return true;
+    }
+
 }
