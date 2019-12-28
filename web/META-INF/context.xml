@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+http://tomcat.apache.org/tomcat-9.0-doc/config/context.html
+debug 为设定debug的等级0提供最少的信息,9提供最多的信息
+reloadable  reloadable=true时 当web.xml或者class有改动的时候都会自动重新加载不需要从新启动服务
+crosscontext="true"表示配置的不同context共享一个session
+sessionCookiePath   设置sessionCookie的path属性
+sessionCookieName   设置sessionCookie的name属性
+useHttpOnly     是否应在会话cookie上设置HttpOnly标志，以防止客户端脚本访问会话ID？默认为 true
+-->
+<Context path="/"
+         reloadable="true"
+         debug="0"
+         crosscontext="false"
+         sessionCookiePath="/"
+         sessionCookieName="sid" >
+    <!--持久化配置（将session保存至mysql）-->
+    <Manager className="org.apache.catalina.session.PersistentManager"
+             maxActiveSessions="-1" minIdleSwap="-1" maxIdleSwap="-1" maxIdleBackup="-1"
+             saveOnRestart="true">
+        <Store className="org.apache.catalina.session.JDBCStore"
+               driverName="com.mysql.cj.jdbc.Driver"
+               connectionURL="jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT%2B8"
+               connectionName="root"
+               connectionPassword="disueb11"
+               sessionTable="tomcat_sessions"
+               sessionIdCol="session_id"
+               sessionDataCol="session_data"
+               sessionValidCol="session_valid"
+               sessionMaxInactiveCol="max_inactive"
+               sessionLastAccessedCol="last_access"
+               sessionAppCol="app_name"
+                />
+    </Manager>
+    <!--持久化配置（将session保存至redis）需要自己实现-->
+<!--    <Manager className = "com.radiadesign.catalina.session.RedisSessionManager"
+      host = "localhost"
+      port = "6379"
+      database = "0"
+      maxInactiveInterval = "10"
+    />-->
+
+<!--持久化配置（将session保存至文件）-->
+<!--    <Manager className="org.apache.catalina.session.PersistentManager" saveOnRestart="true">
+        <Store className="org.apache.catalina.session.FileStore" directory="D:\idea_project\web"/>
+    </Manager>-->
+
+</Context>

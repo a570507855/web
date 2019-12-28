@@ -47,7 +47,7 @@ public class UserController {
         return userService.delete(id);
     }
 
-    @ResponseBody
+
     @RequestMapping("login")
     public void login(HttpServletRequest request, HttpServletResponse response){
         userService.login(request, response);

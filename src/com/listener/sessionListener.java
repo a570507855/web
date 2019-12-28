@@ -14,8 +14,8 @@ public class sessionListener implements HttpSessionListener {
         System.out.println("***************session创建事件*************");
         HttpSession session = sessionEvent.getSession();
         String sessionId = session.getId();
-        session.setMaxInactiveInterval(60*10);
         System.out.println("*时间："+new Date().toString());
+
         System.out.println("*session Id："+sessionId);
     }
 

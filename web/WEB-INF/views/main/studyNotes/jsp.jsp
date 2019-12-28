@@ -14,6 +14,7 @@
         System.out.println(session.getMaxInactiveInterval());
         session.setMaxInactiveInterval(60*60*24);
         System.out.println(session.getId());
+        System.out.println(session.getAttribute("username"));
     %>
     <div class="container">
         <div class="card">

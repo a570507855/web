@@ -7,8 +7,11 @@ import com.main.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -87,7 +90,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void login(HttpServletRequest request, HttpServletResponse response) {
-
+        HttpSession session = request.getSession();
+        String accountNumber = request.getParameter("accountNumber");
+        String password = request.getParameter("password");
+        session.setAttribute("username", "许亦勇");
+        session.setAttribute("accountNumber", accountNumber);
+        session.setAttribute("password", password);
+        Cookie c = new Cookie("sid", session.getId());
+        c.setMaxAge(60*60*24*30);
+        c.setPath("/");
+        response.addCookie(c);
+        try {
+            response.sendRedirect("/views/jsp");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -125,6 +142,7 @@ public class UserServiceImpl implements UserService {
         return isRegister(accountNumber) && count != 0;
     }
 
+    //判断字符串是否为数字
     public static boolean isNumer(String str) {
         String bigStr;
         try {
@@ -133,6 +151,10 @@ public class UserServiceImpl implements UserService {
             return false;//异常 说明包含非数字。
         }
         return true;
+    }
+
+    public boolean isOnline(){
+        return false;
     }
 
 }

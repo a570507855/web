@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
-<head>
+<head><%--6542053610A11C32B8DF7A8F9CFC3BB3--%>
     <meta name="keywords" content="登陆">
     <meta name="description" content="登陆界面">
     <title>登陆</title>
@@ -10,7 +10,6 @@
     <script src="/js/login/login.js"></script>
     <style>
         label.error{
-
             color: #ea330b;
         }
     </style>
@@ -46,7 +45,7 @@
                 accountNumber:{
                     required:true,
                     remote:{
-                        url: "user/isRegister",     //后台处理程序
+                        url: "/user/isRegister",     //后台处理程序
                         type: "post",               //数据发送方式
                         dataType: "json",           //接受数据格式
                         data: {                     //要传递的数据

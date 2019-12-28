@@ -49,7 +49,6 @@
             <list>
                 <value>classpath:com/**/mapping/*.xml</value>
                 <value>classpath:com/mapper/*.xml</value>
-                <value>classpath:com/book/mapping/*.xml</value>
             </list>
         </property>
         <property name="configLocation" value="classpath:/mybatis-config.xml"></property>

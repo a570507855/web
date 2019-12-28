@@ -9,8 +9,7 @@
     <link rel='stylesheet' href='/js/bootstrap-4.4.1/css/bootstrap.min.css' type='text/css'>
     <script type='text/javascript' src='/js/jquery-3.4.1.min.js'></script>
     <script type='text/javascript' src='/js/layui-v2.5.5/layui/layui.js'></script>
-<script type='text/javascript' src='/js/bootstrap-4.4.1/js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='/js/bootstrap-4.4.1/js/bootstrap.min.js'></script>
     <script type='text/javascript' src='/js/bootstrap-4.4.1/js/bootstrap.bundle.min.js'></script>
-
     <script type='text/javascript' src='/js/base.js'></script>
     <script type='text/javascript' src='/js/jquery.validate.min.js'></script>

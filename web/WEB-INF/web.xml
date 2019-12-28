@@ -75,6 +75,14 @@
     <listener>
         <listener-class>com.listener.sessionListener</listener-class>
     </listener>
+    <!--我的context监听器-->
+    <listener>
+        <listener-class>com.listener.contextListener</listener-class>
+    </listener>
+    <!--我的context监听器-->
+    <listener>
+        <listener-class>com.listener.requestListener</listener-class>
+    </listener>
 
     <!-- spring mvc servlet-->
     <servlet>
