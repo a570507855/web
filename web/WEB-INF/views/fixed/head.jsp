@@ -1,12 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="container">
-    <nav class="navbar navbar-expand-md">
+
+    <nav class="navbar navbar-expand-md  justify-content-between">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <span class="navbar-brand" href="#"><img src="/img/nav.svg">导航</span>
+                <span class="navbar-brand"><img src="/img/nav.svg">导航</span>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/views/home">首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tomcatSessions/tomcatSessions">会话管理</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">c++</a>
@@ -39,5 +42,32 @@
                 </div>
             </li>
         </ul>
+        <% if(session.getAttribute("username") == null) {%>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <span class="navbar-brand"><img src="/icon/account.svg"  class="rounded-circle" ></span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/views/login">登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/views/register">注册</a>
+            </li>
+        </ul>
+        <% } else {%>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <span class="navbar-brand"><img src="/icon/account.svg"  class="rounded-circle" ></span>
+            </li>
+            <li class="nav-item">
+                <span class="navbar-brand">${sessionScope.username}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);">个人中心</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login/quit">退出</a>
+            </li>
+        </ul>
+        <% }%>
     </nav>
-</div>

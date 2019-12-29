@@ -8,9 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -45,23 +42,5 @@ public class UserController {
     @RequestMapping("delete")
     public ToJson delete(String id){
         return userService.delete(id);
-    }
-
-
-    @RequestMapping("login")
-    public void login(HttpServletRequest request, HttpServletResponse response){
-        userService.login(request, response);
-    }
-
-    @ResponseBody
-    @RequestMapping("isRegister")
-    public boolean isRegister(String accountNumber){
-        return userService.isRegister(accountNumber);
-    }
-
-    @ResponseBody
-    @RequestMapping("isPass")
-    public boolean isPass(String accountNumber, String password){
-        return userService.isPass(accountNumber, password);
     }
 }

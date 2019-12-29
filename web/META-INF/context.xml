@@ -9,9 +9,9 @@ sessionCookieName   设置sessionCookie的name属性
 useHttpOnly     是否应在会话cookie上设置HttpOnly标志，以防止客户端脚本访问会话ID？默认为 true
 -->
 <Context path="/"
-         reloadable="true"
+         reloadable="false"
          debug="0"
-         crosscontext="false"
+         crosscontext="true"
          sessionCookiePath="/"
          sessionCookieName="sid" >
     <!--持久化配置（将session保存至mysql）-->

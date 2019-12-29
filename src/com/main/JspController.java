@@ -3,14 +3,24 @@ package com.main;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("views")
 public class JspController {
 
     //登录界面
     @RequestMapping("login")
-    public String login(){
-        return "login/login";
+    public String login(HttpServletResponse response, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        if(session.getAttribute("password") != null){
+            return "main/home";
+        }
+        else {
+            return "login/login";
+        }
     }
 
     //注册界面

@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <form class="content " id="loginForm" action="/user/login" method="post" target="_parent" enctype="multipart/form-data">
+    <form class="content " id="loginForm" action="/login/login" method="post" target="_parent" enctype="multipart/form-data">
         <div class="text-center">
             <h3>登录</h3>
         </div>
@@ -45,7 +45,7 @@
                 accountNumber:{
                     required:true,
                     remote:{
-                        url: "/user/isRegister",     //后台处理程序
+                        url: "/login/isRegister",     //后台处理程序
                         type: "post",               //数据发送方式
                         dataType: "json",           //接受数据格式
                         data: {                     //要传递的数据
@@ -70,7 +70,7 @@
             },
             submitHandler:function(form){
                 $.ajax({
-                    url:'/user/isPass',
+                    url:'/login/isPass',
                     type:'post',
                     data:{
                         accountNumber:$('#accountNumber').val(),

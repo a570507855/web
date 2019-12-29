@@ -7,12 +7,6 @@ import com.main.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +15,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
-
 
     @Override
     public ToJson selectList(Integer page, Integer limit, UserWithBLOBs user) {
@@ -87,74 +80,4 @@ public class UserServiceImpl implements UserService {
         }
         return json;
     }
-
-    @Override
-    public void login(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        String accountNumber = request.getParameter("accountNumber");
-        String password = request.getParameter("password");
-        session.setAttribute("username", "许亦勇");
-        session.setAttribute("accountNumber", accountNumber);
-        session.setAttribute("password", password);
-        Cookie c = new Cookie("sid", session.getId());
-        c.setMaxAge(60*60*24*30);
-        c.setPath("/");
-        response.addCookie(c);
-        try {
-            response.sendRedirect("/views/jsp");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public boolean isRegister(String accountNumber) {
-        long phoneNumber = 0;
-        String maibox = "";
-        if(isNumer(accountNumber)){
-            phoneNumber = Long.parseLong(accountNumber);
-
-        }
-        else{
-            maibox = accountNumber;
-        }
-        long i = userMapper.countByLogin(phoneNumber, maibox);
-        return i != 0;
-    }
-
-    @Override
-    public boolean isPass(String accountNumber, String password) {
-        long phoneNumber = 0;
-        String maibox = "";
-        UserWithBLOBs user = new UserWithBLOBs();
-        long count = 0;
-        user.setPassword(password);
-        if(isNumer(accountNumber)){
-            phoneNumber = Long.parseLong(accountNumber);
-            user.setPhoneNumber(phoneNumber);
-            count = userMapper.count(user);
-        }
-        else{
-            maibox = accountNumber;
-            user.setMailbox(maibox);
-            count = userMapper.count(user);
-        }
-        return isRegister(accountNumber) && count != 0;
-    }
-
-    //判断字符串是否为数字
-    public static boolean isNumer(String str) {
-        String bigStr;
-        try {
-            bigStr = new BigDecimal(str).toString();
-        } catch (Exception e) {
-            return false;//异常 说明包含非数字。
-        }
-        return true;
-    }
-
-    public boolean isOnline(){
-        return false;
-    }
-
 }

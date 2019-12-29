@@ -65,6 +65,8 @@ public interface UserMapper {
 
     List<UserWithBLOBs> selectList(@Param("page") Integer page, @Param("limit") Integer limit, @Param("user") UserWithBLOBs user);
 
+    UserWithBLOBs selectByAccountNumber(@Param("phoneNumber") long phoneNumber, @Param("mailbox") String mailbox);
+
     long count(UserWithBLOBs user);
 
     long countByLogin(@Param("phoneNumber") long phoneNumber, @Param("maibox") String maibox);

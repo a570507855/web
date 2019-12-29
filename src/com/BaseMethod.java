@@ -3,7 +3,22 @@ package com;
 import java.math.BigDecimal;
 
 public class BaseMethod {
-    public static boolean isNumer(String str) {
+
+    private static BaseMethod instance;
+
+    private BaseMethod(){
+
+    }
+
+    public static BaseMethod getInstance(){
+        if(instance == null){
+            instance = new BaseMethod();
+        }
+        return instance;
+    }
+
+    //判断是否是数字
+    public  boolean isNumer(String str) {
         String bigStr;
         try {
             bigStr = new BigDecimal(str).toString();

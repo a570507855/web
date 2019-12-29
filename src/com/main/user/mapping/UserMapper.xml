@@ -472,6 +472,21 @@
     </if>
   </select>
 
+  <select id="selectByAccountNumber" resultType="com.main.user.model.UserWithBLOBs">
+    select
+    <include refid="Blob_Column_List"/>,
+    <include refid="Base_Column_List"/>
+    from user
+    <where>
+      <if test="phoneNumber != null and phoneNumber!= -1">
+        phone_number = #{phoneNumber,jdbcType=BIGINT}
+      </if>
+      <if test="mailbox != null and mailbox!= ''">
+        and mailbox = #{mailbox,jdbcType=CHAR}
+      </if>
+    </where>
+  </select>
+
   <select id="count" resultType="long">
     select count(*) from user
     <where>
