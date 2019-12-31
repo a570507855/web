@@ -1,6 +1,7 @@
 package com.login;
 
 import com.BaseMethod;
+import com.MySessionContext;
 import com.main.user.dao.UserMapper;
 import com.main.user.model.UserWithBLOBs;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class Login {
 
     private BaseMethod baseMethod = BaseMethod.getInstance();
 
+    private MySessionContext myc = MySessionContext.getInstance();
+
 
     /***
      * 登录操作
@@ -33,19 +36,24 @@ public class Login {
     @RequestMapping("login")
     public void login(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
+        String accountNumber = request.getParameter("accountNumber");
+        long phoneNumber = -1;
+        String maibox = "";
+        //判断是用手机号还是邮箱
+        if(baseMethod.isNumer(accountNumber)){
+            phoneNumber = Long.parseLong(accountNumber);
+        }
+        else{
+            maibox = accountNumber;
+        }
+        HttpSession oldSession = myc.isOnline(accountNumber);
+        //登录时若已存在该账号的session则销毁之前的
+        if(oldSession != null){
+            oldSession.invalidate();
+        }
         if(session.getAttribute("accountNumber") == null){
-            String accountNumber = request.getParameter("accountNumber");
-            long phoneNumber = -1;
-            String maibox = "";
-            //判断是用手机号还是邮箱
-            if(baseMethod.isNumer(accountNumber)){
-                phoneNumber = Long.parseLong(accountNumber);
-            }
-            else{
-                maibox = accountNumber;
-            }
             UserWithBLOBs user = userMapper.selectByAccountNumber(phoneNumber, maibox);
-
+            session.setAttribute("accountNumber", accountNumber);
             session.setAttribute("username", user.getUsername());
             session.setAttribute("isMember", user.getIsMember());
             session.setAttribute("sex", user.getSex());

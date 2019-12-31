@@ -42,4 +42,12 @@ public class MySessionContext {
         return map;
     }
 
+    public synchronized HttpSession isOnline(String accountNumber){
+        for(HashMap.Entry<String, HttpSession> entry :map.entrySet()){
+            if(accountNumber.equals(entry.getValue().getAttribute("accountNumber"))){
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
 }
