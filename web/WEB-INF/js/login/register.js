@@ -50,4 +50,30 @@ $().ready(function () {
             error.appendTo(element.parent());
         }
     })
+
+    //避免浏览器自动填充
+    $('.password').on('input', function () {
+        $(this).val() === '' ? this.type ="text" : this.type = "password";
+    })
+
+    //注册方式切换
+    $('.register').on('click',function () {
+        if(!$(this).hasClass('click-this')){
+            $('input').val('')
+            $('.click-this').addClass('not-click-color')
+            $('.register').removeClass('click-this')
+            $(this).addClass('click-this')
+            $(this).removeClass('not-click-color')
+        }
+        if($(this).html() == '手机号注册'){
+            $('#phone-email').attr("placeholder", "手机号")
+            $('#phone-email').attr("lay-verify", "required|phone")
+            $('#phone-email').attr("name", "phoneNumber")
+        }
+        else {
+            $('#phone-email').attr("placeholder", "邮箱")
+            $('#phone-email').attr("lay-verify", "required|email")
+            $('#phone-email').attr("name", "mailbox")
+        }
+    })
 })

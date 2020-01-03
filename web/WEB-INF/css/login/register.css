@@ -1,0 +1,40 @@
+body{
+    background-color: #f3f3f4;
+}
+.content{
+    padding-top: 20px;
+    margin: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.register-content{
+    padding-top: 20px;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tag{
+    display: flex;
+    justify-content: space-around;
+}
+.register-right{
+    border-right: 1px black solid;
+}
+.register-width{
+    width: 50%
+}
+b{
+    cursor: pointer;
+}
+
+.not-click-color{
+    color:#bdbdbd
+}
+.text-center{
+    margin: 5px 0;
+}

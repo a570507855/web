@@ -6,12 +6,12 @@
     <meta name="description" content="注册界面">
     <title>注册</title>
     <jsp:include page="/views/resources"/>
-    <link rel='stylesheet' type="text/css" href="/css/login/login.css">
-    <script src="/js/login/login.js"></script>
+    <link rel='stylesheet' type="text/css" href="/css/login/register.css">
+    <script src="/js/login/register.js"></script>
 </head>
 <body>
 
-<form class="register-content" id="registerForm" method="post" target="_parent" enctype="multipart/form-data">
+<form class="register-content" id="registerForm" method="post" target="_parent" enctype="multipart/form-data" autocomplete="new-password">
     <div class="text-center">
         <h3>注册</h3>
     </div>
@@ -20,16 +20,16 @@
         <div class="text-center register-width"><b class="register not-click-color">邮箱注册</b></div>
     </div>
     <div class="text-center">
-        <input type="text" class="form-control" placeholder="用户名" name="username">
+        <input type="text" class="form-control" placeholder="用户名">
     </div>
     <div class="text-center">
-        <input type="text" id="phone-email"  class="form-control" placeholder="手机号" name="phoneNumber">
+        <input type="text" id="phone-email"  class="form-control" name="phoneNumber" placeholder="手机号"  >
     </div>
     <div class="text-center">
-        <input type="password"  class="form-control" placeholder="密码" name="password">
+        <input type="text" class="form-control password" name="password" placeholder="密码" >
     </div>
     <div class="text-center">
-        <input type="password"  class="form-control" placeholder="再次确认密码">
+        <input type="text" class="form-control password" placeholder="再次确认密码">
     </div>
     <div class="text-center">
         <button type="submit" class="btn btn-primary"  style="width: 100%">注册</button>
@@ -40,32 +40,12 @@
 </form>
 </body>
 <script>
-    layui.use('layer',function () {
 
 
-        form.on("submit(*)",function (data) {
-            $.ajax({
-                url:'/user/insert',
-                data:data.field,
-                type:'post',
-                success:function (res) {
-                    console.log(res)
-                    if(res.flag){
-                        layer.msg("注册成功",{icon:1,offset:['45%','45%']})
-                        setTimeout(function () {
-                            location.href='/views/login'
-                        },3000)
-                    }
-                    else{
-                        layer.msg("注册失败",{icon:2,offset:['45%','45%']})
-                    }
-                }
-            })
-            return false
-        })
 
 
-        //自定义表单验证
+
+       /* //自定义表单验证
         form.verify({
             username: function(value, item){ //value：表单的值、item：表单的DOM对象
                 if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
@@ -88,7 +68,7 @@
                 else{
                     if(!/^1\d{10}$/.test(value)){
                         return "请输入正确的手机号"
-                    }
+                    }||
                 }
             }
             //我们既支持上述函数式的方式，也支持下述数组的形式
@@ -103,28 +83,8 @@
                     return "两次输入的密码不一致"
                 }
             }
-        });
-    })
+        });*/
 
-    //注册方式切换
-    $('.register').on('click',function () {
-        if(!$(this).hasClass('click-this')){
-            $('input').val('')
-            $('.click-this').addClass('not-click-color')
-            $('.register').removeClass('click-this')
-            $(this).addClass('click-this')
-            $(this).removeClass('not-click-color')
-        }
-        if($(this).html() == '手机号注册'){
-            $('#phone-email').attr("placeholder", "手机号")
-            $('#phone-email').attr("lay-verify", "required|phone")
-            $('#phone-email').attr("name", "phoneNumber")
-        }
-        else {
-            $('#phone-email').attr("placeholder", "邮箱")
-            $('#phone-email').attr("lay-verify", "required|email")
-            $('#phone-email').attr("name", "mailbox")
-        }
-    })
+
 </script>
 </html>
