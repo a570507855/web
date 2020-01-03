@@ -15,12 +15,7 @@ public class JspController {
     @RequestMapping("login")
     public String login(HttpServletResponse response, HttpServletRequest request){
         HttpSession session = request.getSession();
-        if(session.getAttribute("password") != null){
-            return "main/home";
-        }
-        else {
-            return "login/login";
-        }
+        return session.getAttributeNames().hasMoreElements() ? "main/home" : "login/login";
     }
 
     //注册界面
@@ -58,7 +53,6 @@ public class JspController {
     public String jsp(){
         return "main/studyNotes/jsp";
     }
-
 
     //首页
     @RequestMapping("home")

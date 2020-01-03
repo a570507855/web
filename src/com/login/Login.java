@@ -34,7 +34,7 @@ public class Login {
      * @param response
      */
     @RequestMapping("login")
-    public void login(HttpServletRequest request, HttpServletResponse response){
+    public void login(HttpServletRequest request, HttpServletResponse response)throws Exception{
         HttpSession session = request.getSession();
         String accountNumber = request.getParameter("accountNumber");
         long phoneNumber = -1;
@@ -65,11 +65,7 @@ public class Login {
             c.setPath("/");
             response.addCookie(c);
         }
-        try {
-            response.sendRedirect("/views/home");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        response.sendRedirect("/views/home");
     }
 
     /***

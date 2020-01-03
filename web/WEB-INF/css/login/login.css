@@ -5,7 +5,6 @@ body{
     padding-top: 20px;
     margin: auto;
     width: 300px;
-    height: 260px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -35,4 +34,7 @@ b{
 
 .not-click-color{
     color:#bdbdbd
+}
+.text-center{
+    margin: 5px 0;
 }

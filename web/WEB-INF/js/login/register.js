@@ -4,7 +4,7 @@ $().ready(function () {
 
     })
     //表单验证
-    $('#loginForm').validate({
+    $('#registerForm').validate({
         rules:{
             accountNumber:{
                 required:true,
@@ -41,20 +41,13 @@ $().ready(function () {
                     password:$('#password').val()
                 },
                 success:function (res) {
-                    if(res){
-                        form.submit();
-                    }
-                    else {
-                        layer.msg("密码错误")
-                    }
+                    res ? form.submit() : layer.msg("密码错误")
                 }
             })
-
         },
         //debug:true,
         errorPlacement:function (error, element) {
             error.appendTo(element.parent());
-        },
-
+        }
     })
 })

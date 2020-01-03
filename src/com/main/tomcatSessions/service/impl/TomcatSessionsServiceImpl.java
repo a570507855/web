@@ -75,7 +75,7 @@ public class TomcatSessionsServiceImpl implements TomcatSessionsService {
     @Override
     public ToJson selectSessions() {
         ToJson json = new ToJson("获取失败");
-        HashMap<String, HttpSession> map = myc.getMap();
+        HashMap<String, HttpSession> map = myc.getSessionMap();
         List<TomcatSessions> list = new ArrayList<>();
         for(HashMap.Entry<String, HttpSession> entry :map.entrySet()){
 

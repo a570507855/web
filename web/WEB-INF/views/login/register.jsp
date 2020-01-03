@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form class="register-content layui-form"  method="post" target="_parent" enctype="multipart/form-data">
+<form class="register-content" id="registerForm" method="post" target="_parent" enctype="multipart/form-data">
     <div class="text-center">
         <h3>注册</h3>
     </div>
@@ -19,20 +19,20 @@
         <div class="register-right text-center register-width"><b class="register click-this">手机号注册</b></div>
         <div class="text-center register-width"><b class="register not-click-color">邮箱注册</b></div>
     </div>
-    <div>
-        <input type="text" lay-verify="required|username" class="layui-input" placeholder="昵称" name="nickname">
+    <div class="text-center">
+        <input type="text" class="form-control" placeholder="用户名" name="username">
     </div>
-    <div>
-        <input type="text" id="phone-email" class="layui-input" lay-verify="required|phone" placeholder="手机号" name="phoneNumber">
+    <div class="text-center">
+        <input type="text" id="phone-email"  class="form-control" placeholder="手机号" name="phoneNumber">
     </div>
-    <div>
-        <input type="password" class="layui-input" lay-verify="required|pass"  placeholder="密码" name="password">
+    <div class="text-center">
+        <input type="password"  class="form-control" placeholder="密码" name="password">
     </div>
-    <div>
-        <input type="password" class="layui-input" lay-verify="required|passAgain"  placeholder="再次确认密码">
+    <div class="text-center">
+        <input type="password"  class="form-control" placeholder="再次确认密码">
     </div>
-    <div>
-        <button type="submit" lay-submit lay-filter="*" class="layui-btn layui-btn-sm" lay-event="*" id="submit" style="width: 100%" >注册</button>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary"  style="width: 100%">注册</button>
     </div>
     <div>
         <p class="text-muted text-center">已经有账户了？| <a class="a" href="/views/login">点此登录</a>
@@ -40,8 +40,8 @@
 </form>
 </body>
 <script>
-    layui.use('form',function () {
-        var form = layui.form
+    layui.use('layer',function () {
+
 
         form.on("submit(*)",function (data) {
             $.ajax({

@@ -25,6 +25,7 @@ public class contextListener implements ServletContextListener {
                 driver = drivers.nextElement();
                 DriverManager.deregisterDriver(driver);
             } catch (SQLException ex) {
+                ex.printStackTrace();
             }
         }
         AbandonedConnectionCleanupThread.checkedShutdown();
