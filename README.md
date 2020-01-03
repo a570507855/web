@@ -1,9 +1,9 @@
-# SSM项目  
-[项目链接](http://http://198.177.123.52 "个人主页") 
-后台：SSM框架  
-前端框架：jquery,layui,bootstrap 
-作者：xyy  
-邮箱：570507855@qq.com 
+# SSM项目<br>
+[项目链接](http://http://198.177.123.52 "个人主页")<br>
+后台：SSM框架<br>
+前端框架：jquery,layui,bootstra<br>
+作者：xyy<br>
+邮箱：570507855@qq.com<br>
 
 # v0.1.5(2020-01-01)
 * 登录功能
