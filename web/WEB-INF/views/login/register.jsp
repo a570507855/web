@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form class="register-content" id="registerForm" method="post" target="_parent" enctype="multipart/form-data" autocomplete="new-password">
+<form class="content" id="registerForm" method="post" target="_parent" enctype="multipart/form-data" autocomplete="new-password">
     <div class="text-center">
         <h3>注册</h3>
     </div>
@@ -20,16 +20,16 @@
         <div class="text-center register-width"><b class="register not-click-color">邮箱注册</b></div>
     </div>
     <div class="text-center">
-        <input type="text" class="form-control" placeholder="用户名">
+        <input type="text" class="form-control" placeholder="用户名" autocomplete="off">
     </div>
     <div class="text-center">
-        <input type="text" id="phone-email"  class="form-control" name="phoneNumber" placeholder="手机号"  >
+        <input type="text" id="phone-email"  class="form-control" name="phoneNumber" placeholder="手机号" autocomplete="off">
     </div>
     <div class="text-center">
-        <input type="text" class="form-control password" name="password" placeholder="密码" >
+        <input type="text" class="form-control password" name="password" placeholder="密码" autocomplete="off">
     </div>
     <div class="text-center">
-        <input type="text" class="form-control password" placeholder="再次确认密码">
+        <input type="text" class="form-control password" placeholder="再次确认密码" autocomplete="off">
     </div>
     <div class="text-center">
         <button type="submit" class="btn btn-primary"  style="width: 100%">注册</button>
