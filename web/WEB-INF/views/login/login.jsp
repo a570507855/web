@@ -6,13 +6,7 @@
     <meta name="description" content="登陆界面">
     <title>登陆</title>
     <jsp:include page="/views/resources"/>
-    <link rel='stylesheet' type="text/css" href="/css/login/login.css">
-    <script src="/js/login/login.js"></script>
-    <style>
-        label.error{
-            color: #ea330b;
-        }
-    </style>
+    <link rel='stylesheet' type="text/css" href="/css/login/loginRegister.css">
 </head>
 <body>
     <form class="content " id="loginForm" action="/login/login" method="post" target="_parent" enctype="multipart/form-data">

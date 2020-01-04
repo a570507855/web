@@ -565,11 +565,14 @@
   <select id="countByLogin" resultType="long">
     select count(*) from user
     <where>
-      <if test="phoneNumber != null and phoneNumber != ''">
-        phone_number = #{phoneNumber,jdbcType=BIGINT}
+      <if test="username != null and username != ''">
+        username = #{username,jdbcType=CHAR}
       </if>
-      <if test="maibox != null and maibox != ''">
-        or maibox = #{maibox,jdbcType=CHAR}
+      <if test="phoneNumber != null and phoneNumber != '0'">
+        or phone_number = #{phoneNumber,jdbcType=BIGINT}
+      </if>
+      <if test="mailbox != null and mailbox != ''">
+        or mailbox = #{mailbox,jdbcType=CHAR}
       </if>
     </where>
   </select>

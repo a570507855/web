@@ -7,6 +7,7 @@ import com.main.user.model.UserWithBLOBs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
@@ -69,36 +70,59 @@ public class Login {
     }
 
     /***
+     * 注册
+     * @param user
+     * @param response
+     * @throws IOException
+     */
+    @ResponseBody
+    @RequestMapping("register")
+    public void register(UserWithBLOBs user,HttpServletResponse response) throws IOException {
+        userMapper.inserts(user);
+        response.setContentType("text/html");
+        response.setCharacterEncoding("utf-8");
+        PrintWriter out = response.getWriter();
+        String html = "<html>" +
+                "<head>" +
+                "<meta http-equiv=\"refresh\" content=\"2;url='/views/login'\">" +
+                "<title>注册成功</title>" +
+                "</head>" +
+                "<body>" +
+                "<div style=\"padding:30px;padding:36px 80px;border:1px solid #a9a9a9;background:#ffffff ; text-align:center; margin:20% auto; background-repeat: no-repeat; width:55%;\">" +
+                "<div><span>注册成功！<span></div>" +
+                "<div><a href=\"/views/login\">如果你的浏览器没反应，请点击这里...<a></div>" +
+                "</div>" +
+                "</body>" +
+                "</html>";
+        out.println(html);
+    }
+
+    /***
      * 退出登录
      * @param request
      * @param response
      */
     @ResponseBody
     @RequestMapping("quit")
-    public void quit(HttpServletRequest request, HttpServletResponse response){
+    public void quit(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-
         response.setContentType("text/html");
         response.setCharacterEncoding("utf-8");
-        try {
-            PrintWriter out = response.getWriter();
-            String html = "<html>" +
-                    "<head>" +
-                    "<meta http-equiv=\"refresh\" content=\"2; url='/views/home'\">" +
-                    "<title>退出登录</title>" +
-                    "</head>" +
-                    "<body>" +
-                    "<div style=\"padding:30px;padding:36px 80px;border:1px solid #a9a9a9;background:#ffffff ; text-align:center; margin:20% auto; background-repeat: no-repeat; width:55%;\">" +
-                    "<div><span>成功退出登录！<span></div>" +
-                    "<div><a href=\"/views/home\">如果你的浏览器没反应，请点击这里...<a></div>" +
-                    "</div>" +
-                    "</body>" +
-                    "</html>";
-            out.println(html);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        PrintWriter out = response.getWriter();
+        String html = "<html>" +
+                "<head>" +
+                "<meta http-equiv=\"refresh\" content=\"2; url='/views/home'\">" +
+                "<title>退出登录</title>" +
+                "</head>" +
+                "<body>" +
+                "<div style=\"padding:30px;padding:36px 80px;border:1px solid #a9a9a9;background:#ffffff ; text-align:center; margin:20% auto; background-repeat: no-repeat; width:55%;\">" +
+                "<div><span>成功退出登录！<span></div>" +
+                "<div><a href=\"/views/home\">如果你的浏览器没反应，请点击这里...<a></div>" +
+                "</div>" +
+                "</body>" +
+                "</html>";
+        out.println(html);
     }
 
 
@@ -120,8 +144,24 @@ public class Login {
         else{
             maibox = accountNumber;
         }
-        long i = userMapper.countByLogin(phoneNumber, maibox);
+        long i = userMapper.countByLogin("", phoneNumber, maibox);
         return i != 0;
+    }
+
+    /***
+     *
+     * @param username 用户名
+     * @param phoneNumber 手机号
+     * @param mailbox 邮箱
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("usernameAccountNumberNotExist")
+    public boolean usernameAccountNumberExist(@RequestParam(value = "username", required = false, defaultValue = "") String username,
+                                              @RequestParam(value = "phoneNumber", required = false, defaultValue = "0") long phoneNumber,
+                                              @RequestParam(value = "mailbox", required = false, defaultValue = "")String mailbox){
+        long count = userMapper.countByLogin(username, phoneNumber, mailbox);
+        return count == 0;
     }
 
     /***
