@@ -60,4 +60,10 @@ public class JspController {
         return "main/home";
     }
 
+    //测试
+    @RequestMapping("ceshi")
+    public String ceshi(){
+        return "main/ceshi";
+    }
+
 }

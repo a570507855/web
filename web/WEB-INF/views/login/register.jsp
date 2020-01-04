@@ -36,6 +36,6 @@
         <p class="text-muted text-center">已经有账户了？| <a class="a" href="/views/login">点此登录</a>
     </div>
 </form>
-<script src="/js/login/register.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/login/register.js" charset="UTF-8"></script>
 </body>
 </html>

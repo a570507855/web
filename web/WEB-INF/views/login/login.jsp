@@ -26,6 +26,6 @@
             <p class="text-muted text-center"> <a class="a" href="/views/changePassword">忘记密码了？</a> | <a class="a" href="/views/register">注册一个新账号</a>
         </div>
     </form>
-<script type="text/javascript" src="js/login/login.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/login/login.js" charset="UTF-8"></script>
 </body>
 </html>

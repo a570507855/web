@@ -20,12 +20,20 @@
         $(window).resize(function () {
         })
 
+        //菜单悬浮--注册鼠标进入与离开事件
         var dropMenu = document.getElementsByClassName("xyy-drop-menu")
         for(var i =0; i!= dropMenu.length; ++i){
-            dropMenu[i].addEventListener("mouseover",function (evt) {
-
+            dropMenu[i].addEventListener("mouseenter",function (event) {
+                var width = $(this).width(),
+                    content = $(this).find(".xyy-drop-content").first()
+                if(content.hasClass("xyy-drop-content-right")){
+                    content.css("left",width+"px");
+                }
+                content.show();
             })
-            dropMenu[i].addEventListener("mouseout",fin)
+            dropMenu[i].addEventListener("mouseleave",function (event) {
+                $(this).find(".xyy-drop-content").first().hide();
+            })
         }
     }
 
@@ -83,19 +91,5 @@
         }
         return theRequest;
     }
-/*    $('.xyy-drop-menu').hover(function () {
-        $(this).find(".xyy-drop-content").first().show();
-    })*/
 
-    function dropContentShow(event) {
-        event.preventDefault()
-        console.log("进入")
-        $(this).find(".xyy-drop-content").first().show();
-    }
-
-    function dropContentHide(event) {
-        console.log("离开")
-        event.preventDefault()
-        $(this).find(".xyy-drop-content").first().hide();
-    }
 
