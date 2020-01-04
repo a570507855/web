@@ -8,7 +8,7 @@
     <jsp:include page="/views/resources"/>
     <link rel='stylesheet' type="text/css" href="/css/login/loginRegister.css">
 </head>
-<body>
+<body class="xyy-body-bgColor">
 
 <form class="content" action="/login/register" id="registerForm" method="post" onsubmit="return false;" target="_parent" enctype="multipart/form-data" autocomplete="new-password">
     <div class="text-center">

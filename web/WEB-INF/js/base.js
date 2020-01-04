@@ -20,8 +20,13 @@
         $(window).resize(function () {
         })
 
+        var dropMenu = document.getElementsByClassName("xyy-drop-menu")
+        for(var i =0; i!= dropMenu.length; ++i){
+            dropMenu[i].addEventListener("mouseover",function (evt) {
 
-
+            })
+            dropMenu[i].addEventListener("mouseout",fin)
+        }
     }
 
     //设置cookie
@@ -78,3 +83,19 @@
         }
         return theRequest;
     }
+/*    $('.xyy-drop-menu').hover(function () {
+        $(this).find(".xyy-drop-content").first().show();
+    })*/
+
+    function dropContentShow(event) {
+        event.preventDefault()
+        console.log("进入")
+        $(this).find(".xyy-drop-content").first().show();
+    }
+
+    function dropContentHide(event) {
+        console.log("离开")
+        event.preventDefault()
+        $(this).find(".xyy-drop-content").first().hide();
+    }
+

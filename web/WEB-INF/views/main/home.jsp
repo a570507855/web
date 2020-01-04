@@ -8,7 +8,7 @@
     <meta name="description" content="首页,许亦勇的个人首页">
     <jsp:include page="/views/resources"/>
 </head>
-<body>
+<body class="xyy-body-bgColor">
     <jsp:include page="/views/head"/>
     <div class="container">
         <div id="demo" class="carousel slide" data-ride="carousel">

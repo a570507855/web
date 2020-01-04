@@ -8,7 +8,7 @@
     <jsp:include page="/views/resources"/>
     <link rel='stylesheet' type="text/css" href="/css/login/loginRegister.css">
 </head>
-<body>
+<body class="xyy-body-bgColor">
     <form class="content " id="loginForm" action="/login/login" method="post" target="_parent" enctype="multipart/form-data">
         <div class="text-center">
             <h3>登录</h3>

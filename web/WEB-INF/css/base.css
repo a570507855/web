@@ -4,3 +4,50 @@ li:hover .dropdown-menu {display: block;}
 .dropdown-toggle{
     pointer-events: none;
 }
+
+
+.xyy-body-bgColor{
+    background-color: #f3f3f4;
+}
+
+
+
+/*悬浮菜单样式*/
+.xyy-drop-a{
+    text-align: center;
+    display: block;
+    color: black;
+    min-width: 100px;
+    padding:.2rem .5rem;
+}
+.xyy-drop-a:hover{
+    color: #03a9f4;
+    background-color: #f3f3f4;
+    text-decoration: none;
+}
+.xyy-drop-menu{
+    position: relative;
+    display: inline-block;
+}
+.xyy-hover-btn{
+    cursor: pointer;
+}
+.xyy-drop-content{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+.xyy-drop-content-right{
+    top:0;
+    left: 0;
+    transform: translate3d(calc(100% - 2px), 0px, 0px);
+}
+/*
+.xyy-drop-menu:hover .xyy-drop-content{
+    display: block;
+}
+*/
+

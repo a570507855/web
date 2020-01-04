@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
     <nav class="navbar navbar-expand-md  justify-content-between">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -8,11 +7,29 @@
             <li class="nav-item">
                 <a class="nav-link" href="/views/home">首页</a>
             </li>
+            <% if("游戏人生".equals(session.getAttribute("username"))){%>
             <li class="nav-item">
                 <a class="nav-link" href="/tomcatSessions/tomcatSessions">会话管理</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">c++</a>
+            <% }%>
+
+
+            <li class="nav-item xyy-drop-menu">
+                    <a class="nav-link xyy-hover-btn" href="#">计算机语言</a>
+                    <div class="xyy-drop-content">
+                        <a class="xyy-drop-a" href="#">c++</a>
+                        <a class="xyy-drop-a" href="#">java</a>
+                        <a class="xyy-drop-a" href="#">jsp</a>
+                        <div class="xyy-drop-menu">
+                            <a class="xyy-drop-a" href="#">前端</a>
+                            <div class="xyy-drop-content xyy-drop-content-right">
+                                <a class="xyy-drop-a" href="#">c++</a>
+                                <a class="xyy-drop-a" href="#">java</a>
+                                <a class="xyy-drop-a" href="#">jsp</a>
+                                <a class="xyy-drop-a" href="#">前端</a>
+                            </div>
+                        </div>
+                    </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">java</a>
@@ -63,7 +80,7 @@
                 <span class="navbar-brand">${sessionScope.username}</span>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);">个人中心</a>
+                <a class="nav-link" href="/login/personalCenter">个人中心</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/login/quit">退出</a>
