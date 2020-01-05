@@ -101,17 +101,6 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--自定义的servlet-->
-    <servlet>
-        <servlet-name>SessionServlet</servlet-name>
-        <servlet-class>com.main.SessionServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>SessionServlet</servlet-name>
-        <url-pattern>/SessionServlet</url-pattern>
-    </servlet-mapping>
-
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring-mybatis.xml</param-value>

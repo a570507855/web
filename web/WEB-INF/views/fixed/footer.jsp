@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class=" bg-light ">
+<div id="footer" class="bg-light">
     <div class="container">
         <div class="row">
             <div class="col-xl-6">

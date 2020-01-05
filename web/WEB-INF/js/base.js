@@ -23,16 +23,22 @@
         //菜单悬浮--注册鼠标进入与离开事件
         var dropMenu = document.getElementsByClassName("xyy-drop-menu")
         for(var i =0; i!= dropMenu.length; ++i){
+            /***
+             * 注册鼠标进入事件
+             */
             dropMenu[i].addEventListener("mouseenter",function (event) {
-                var width = $(this).width(),
-                    content = $(this).find(".xyy-drop-content").first()
-                if(content.hasClass("xyy-drop-content-right")){
-                    content.css("left",width+"px");
-                }
-                content.show();
+                var width = this.offsetWidth,
+                    content = this.getElementsByClassName("xyy-drop-content")[0];
+                (' ' + content.className + ' ').indexOf(" xyy-drop-content-right ") !== -1
+                    ? content.style.left = width +"px"
+                    : ""
+                content.style.display = "block";
             })
+            /***
+             * 注册鼠标离开事件
+             */
             dropMenu[i].addEventListener("mouseleave",function (event) {
-                $(this).find(".xyy-drop-content").first().hide();
+                this.getElementsByClassName("xyy-drop-content")[0].style.display = "none"
             })
         }
     }

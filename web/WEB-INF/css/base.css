@@ -5,12 +5,49 @@ li:hover .dropdown-menu {display: block;}
     pointer-events: none;
 }
 
-
+/*主体*/
 .xyy-body-bgColor{
-    background-color: #f3f3f4;
+    background-color: #f2f2f2;
 }
 
+.xyy-content-main{
+    position: relative;
+    overflow: auto;
+    margin-top: 15px;
+}
 
+.xyy-content-main-article{
+    border: 1px solid #fff;
+    background-color: #fff;
+    padding: .8rem;
+    float: left;
+    width: 75%;
+}
+
+.xyy-flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.xyy-flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+.xyy-text-box{
+    border: 1px solid #f2f2f2;
+    padding: .5rem;
+}
+.xyy-text-bottom-line{
+    border-bottom: 1px solid rgba(139, 139, 139, 0.52);
+    padding-bottom: 10px;
+}
+.xyy-link-gray{
+    color: gray;
+}
+.xyy-link-gray:hover{
+    text-decoration: none;
+    color: #6B6B6B;
+}
 
 /*悬浮菜单样式*/
 .xyy-drop-a{
@@ -48,4 +85,42 @@ li:hover .dropdown-menu {display: block;}
     top:0;
 }
 
+/*头部导航菜单*/
+.xyy-nav-head-bgColor{
+    background-color: #343a40;
+    margin-bottom: 15px;
+}
+.xyy-nav-head-a{
+    display: block;
+    color: #fff;
+    padding: .5rem 1rem;
+}
+.xyy-nav-head-a:hover{
+    text-decoration: none;
+    color: #e6e6e696;
+}
 
+/*左侧导航菜单*/
+.xyy-nav-fixed-left{
+    float: left;
+
+}
+.xyy-nav-vertical{
+
+}
+.xyy-nav a{
+    line-height: 20px;
+    display: block;
+    padding: 4px 8px;
+    border-bottom: 1px solid #efefef;
+    background-color: #f6f4f0;;
+    color: #000;
+}
+.xyy-nav a:hover {
+    text-decoration: none;
+    color: #000;
+    font-weight:bolder;
+}
+.xyy-nav-this{
+    background-color: cornflowerblue !important;
+}
