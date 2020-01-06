@@ -5,3 +5,4 @@
 /out
 /src/gradle.properties
 /src/jdbc.properties
+/web/WEB-INF/video
