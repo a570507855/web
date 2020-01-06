@@ -55,6 +55,13 @@
                     <a class="xyy-drop-a" href="https://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2" target="_blank">阿里巴巴图标库</a>
                 </div>
             </li>
+            <li class="nav-item xyy-drop-menu">
+                <a class="xyy-nav-head-a" href="javascript:void(0);">学习网站</a>
+                <div class="xyy-drop-content">
+                    <a class="xyy-drop-a" href="https://www.runoob.com/" target="_blank">菜鸟驿站</a>
+                    <a class="xyy-drop-a" href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">国外技术文档</a>
+                </div>
+            </li>
         </ul>
         <% if(session.getAttribute("username") == null) {%>
         <ul class="navbar-nav">
