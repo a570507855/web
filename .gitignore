@@ -5,8 +5,6 @@
 /out
 /src/gradle.properties
 /src/jdbc.properties
-<<<<<<< HEAD
 /web/WEB-INF/video/
-=======
-/web/WEB-INF/video
->>>>>>> b8ab177198e180e0b01411570267b13eb7261b99
+
+
