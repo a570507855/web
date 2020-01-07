@@ -10,9 +10,9 @@
 <body>
 <jsp:include page="/views/head"/>
 
-    <video id="video" controls preload="auto">
+<video id="video" controls preload="auto">
 
-    </video>
+</video>
 
 <%--<jsp:include page="/views/footer"/>--%>
 
