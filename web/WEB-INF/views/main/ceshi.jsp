@@ -49,12 +49,15 @@
     else{
         console.log("浏览器不支持流媒体")
     }
+
     var mediaSource = new MediaSource()
     var video = document.querySelector('video')
     video.src = URL.createObjectURL(mediaSource)
+
     mediaSource.addEventListener("sourceopen",function (ev) {
         // 这个奇怪的字符串后面再解释
         var mime = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+
         // 新建一个 sourceBuffer
         var sourceBuffer = mediaSource.addSourceBuffer(mime);
         console.log(mediaSource.readyState)
@@ -67,11 +70,14 @@
                     mediaSource.endOfStream();
                     video.play();
                 }
+
                 //console.log(mediaSource.readyState); // ended
             });
             sourceBuffer.appendBuffer(buffer);
+
         })
     })
+
     // 以二进制格式请求某个url
     function fetchBuffer (url, callback) {
         var xhr = new XMLHttpRequest;
@@ -82,5 +88,6 @@
         };
         xhr.send();
     }
+
 </script>
 </html>
