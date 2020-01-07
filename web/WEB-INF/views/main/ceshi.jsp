@@ -18,19 +18,14 @@
 
 </body>
 <script>
-    /*    var url =new URL("http://198.177.123.52//video/movie.ogv");
-        console.log(url.toJSON())
-        var blob = new Blob([url.buffer], {type: 'application/octet-stream'}); // 传入一个合适的 MIME 类型
-        var url2 = URL.createObjectURL(blob);
-        console.log(url2)
-        $('#video').attr("src",url2)*/
     //创建XMLHttpRequest对象
-    /*    var xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
         //配置请求方式、请求地址以及是否同步
         xhr.open('POST', '/ceshi/video', true);
         //设置请求结果类型为blob
         xhr.responseType = 'blob';
         //xhr.responseType = 'arraybuffer'
+        xhr.setRequestHeader("Range","bytes=0-54902995");
         //请求成功回调函数
         xhr.onload = function(e) {
             if (this.status == 200) {//请求成功
@@ -41,8 +36,8 @@
                 $("#video").attr("src", URL.createObjectURL(blob));
             }
         };
-        xhr.send();*/
-    var isSupportMediaSource = 'MediaSource' in window
+        xhr.send();
+/*    var isSupportMediaSource = 'MediaSource' in window
     if(isSupportMediaSource){
         console.log("浏览器支持流媒体")
     }
@@ -87,7 +82,7 @@
             callback(xhr.response);
         };
         xhr.send();
-    }
+    }*/
 
 </script>
 </html>
