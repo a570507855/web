@@ -56,7 +56,7 @@
         // 新建一个 sourceBuffer
         var sourceBuffer = mediaSource.addSourceBuffer(mime);
         console.log(mediaSource.readyState)
-        fetchBuffer('/video/first.mp4', function (buffer) {
+        fetchBuffer('/video/video.mp4', function (buffer) {
             console.log(buffer)
             sourceBuffer.addEventListener('updateend', function (_) {
                 console.log(sourceBuffer.updating)

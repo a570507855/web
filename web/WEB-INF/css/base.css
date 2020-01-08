@@ -28,6 +28,10 @@ li:hover .dropdown-menu {display: block;}
     display: flex;
     justify-content: flex-end;
 }
+.xyy-flex-row{
+    display: flex;
+    flex-direction: row;
+}
 
 .xyy-flex-between{
     display: flex;

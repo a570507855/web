@@ -4,9 +4,6 @@
             <li class="nav-item">
                 <a class="xyy-nav-head-a" href="/views/home">首页</a>
             </li>
-            <li class="nav-item">
-                <a class="xyy-nav-head-a" href="/webAPI/index">webAPI</a>
-            </li>
 
             <% if("游戏人生".equals(session.getAttribute("username"))){%>
             <li class="nav-item">
@@ -65,6 +62,13 @@
                     <a class="xyy-drop-a" href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">国外技术文档</a>
                 </div>
             </li>
+
+            <li class="nav-item">
+                <a class="xyy-nav-head-a" href="/webAPI/index">webAPI</a>
+            </li>
+            <li class="nav-item">
+                <a class="xyy-nav-head-a" href="/views/player">播放器</a>
+            </li>
         </ul>
         <% if(session.getAttribute("username") == null) {%>
         <ul class="navbar-nav">
@@ -91,4 +95,6 @@
             </li>
         </ul>
         <% }%>
+
+
     </nav>

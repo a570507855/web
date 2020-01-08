@@ -66,4 +66,10 @@ public class JspController {
         return "main/ceshi";
     }
 
+    //播放器
+    @RequestMapping("player")
+    public String player(){
+        return "player";
+    }
+
 }

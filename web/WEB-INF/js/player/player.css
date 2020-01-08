@@ -16,36 +16,26 @@ flex-basis：定义项目占据的主轴空间，默认auto，即项目的本来
 flex：flex-grow, flex-shrink 和 flex-basis的简写，默认值0,1,auto，快捷值：auto(1 1 auto)，none(0 0 auto)
 align-self：允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性，默认值auto，即继承父元素的align-items属性，如果没父元素，等同于stretch
 */
-body{
-    width: 100%;
-    height: 100%;
+/*transform: scaleX(0.534227);*/
+
+.iconfont{
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.xyy-player-video{
+    min-width: 638px;
+    max-width: 1043px;
+    background-color: #000000;
+}
+.xyy-player-video-footer-controls{
+    justify-content: space-between;
 }
 
-div{
-    border: 1px red solid;
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-.player-video{
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-}
-.player-video-title{
-    height: 40px;
-}
-.player-video-body{
-    flex: auto;
-}
-.player-video-control{
-    height: 44px;
-    flex-direction: column;
-}
-.player-video-control-top{
+
+.xyy-player-video-footer-controls-left{
 
 }
-.player-video-control-bottom{
+.xyy-player-video-footer-controls-right{
+
 
 }
