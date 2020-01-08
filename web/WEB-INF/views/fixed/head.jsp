@@ -4,6 +4,9 @@
             <li class="nav-item">
                 <a class="xyy-nav-head-a" href="/views/home">首页</a>
             </li>
+            <li class="nav-item">
+                <a class="xyy-nav-head-a" href="/webAPI/index">webAPI</a>
+            </li>
 
             <% if("游戏人生".equals(session.getAttribute("username"))){%>
             <li class="nav-item">

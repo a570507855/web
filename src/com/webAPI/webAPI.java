@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("webAPI")
 public class webAPI {
 
+    @RequestMapping("index")
+    public String index(){
+        return "main/webAPI/index";
+    }
+
     @RequestMapping("HTMLVideoElement")
     public String HTMLVideoElement(){
         return "main/webAPI/HTMLVideoElement";
