@@ -18,9 +18,10 @@ align-self：允许单个项目有与其他项目不一样的对齐方式，可�
 */
 /*transform: scaleX(0.534227);*/
 
-.iconfont{
+.xyy-player-icon{
     color: #FFFFFF;
     cursor: pointer;
+    margin: 0 8px;
 }
 .xyy-player-video{
     min-width: 638px;
@@ -29,16 +30,13 @@ align-self：允许单个项目有与其他项目不一样的对齐方式，可�
 }
 .xyy-player-video-footer, .xyy-player-video-body, .xyy-player-video-header{
     width: 100%;
+    padding: 0 1%;
 }
+
 .xyy-player-video-footer-controls{
     justify-content: space-between;
+    height: 29px;
 }
-
-.xyy-player-video-footer-progress{
-    height: 8px;
-    cursor: pointer;
-}
-
 
 .xyy-player-video-footer-controls-left{
 
@@ -51,15 +49,45 @@ video{
     cursor: pointer;
 }
 
-.progress{
-    height: 3px!important;
-    background-color: #333332 !important;
+
+
+.xyy-player-video-footer-progress{
+    position: relative;
     width: 100%;
+    height: 16px;
+    cursor: pointer;
 
 }
 
-.progress:hover{
-    height: 5px!important;
+.progress{
+    position: absolute;
+    height: 2px!important;
+    background-color: #333332 !important;
+    width: 100%;
+    top: 7px;
+}
+.progress-left,.progress-right{
+    position: absolute;
+    height: 100%;
+}
+.progress-left{
+    background-color: #588ab5;
+}
+.progress-icon{
+    position: absolute;
+    color: #588ab5;
+    top: -3px;
+    left: -1%;
+    display: none;
+}
+
+
+.xyy-player-video-footer-progress:hover >.progress{
+    height: 4px!important;
+
+}
+.xyy-player-video-footer-progress:hover >.progress-icon{
+    display: block;
 }
 
 .xyy-player-video-time-color{

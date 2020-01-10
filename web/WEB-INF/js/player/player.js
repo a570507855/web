@@ -2,7 +2,6 @@
     window.xyy = {}
 
     var video = document.querySelector("video")
-    console.log(video)
 
 
 /*    var play = document.querySelector(".icon-player-play")
