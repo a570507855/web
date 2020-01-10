@@ -16,8 +16,10 @@
         </div>
         <div class="xyy-player-video-footer">
             <div class="xyy-player-video-footer-progress">
-                <progress class="progress" min="0"  >
+                <progress class="progress">
                 </progress>
+                <i class="iconfont icon-list-circle"></i>
+
             </div>
             <div class="xyy-player-video-footer-controls xyy-flex-row">
                 <div class="xyy-player-video-footer-controls-left xyy-flex-row">
@@ -51,6 +53,8 @@
 
     video.addEventListener("loadedmetadata", loadedmetadata)
 
+    video.addEventListener("seeking", seeking)
+
     video.addEventListener("seeked", seeked)
 
     video.addEventListener("ended", ended)
@@ -61,7 +65,7 @@
      *  监听事件
      */
 
-    function playAndPause() {
+    function playAndPause(event) {
         switchPlayPause()
         video.paused ?video.play() : video.pause()
 
@@ -83,16 +87,18 @@
     function progressChange(e) {
         video.paused ? play.click() : ''
         var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth;
-        video.currentTime = pos * video.duration;
+        progress.value  = video.currentTime = pos * video.duration;
+    }
+
+    function seeking() {
+        switchPlayPause()
     }
 
     function seeked() {
-        var playStartTime = document.getElementById("playStartTime")
-        playStartTime.textContent = getTimeFormat(video.currentTime)
+        switchPlayPause()
     }
 
     function ended() {
-        console.log(video.paused)
         switchPlayPause()
     }
 
@@ -132,7 +138,7 @@
     }
 
     function switchPlayPause() {
-        video.paused ? play.classList.replace("icon-player-play", "icon-player-pause") : play.classList.replace("icon-player-pause", "icon-player-play")
+        play.classList.contains("icon-player-play") ? play.classList.replace("icon-player-play", "icon-player-pause") : play.classList.replace("icon-player-pause", "icon-player-play")
     }
     
 </script>
