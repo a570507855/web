@@ -27,8 +27,16 @@ align-self：允许单个项目有与其他项目不一样的对齐方式，可�
     max-width: 1043px;
     background-color: #000000;
 }
+.xyy-player-video-footer, .xyy-player-video-body, .xyy-player-video-header{
+    width: 100%;
+}
 .xyy-player-video-footer-controls{
     justify-content: space-between;
+}
+
+.xyy-player-video-footer-progress{
+    height: 8px;
+    cursor: pointer;
 }
 
 
@@ -37,5 +45,23 @@ align-self：允许单个项目有与其他项目不一样的对齐方式，可�
 }
 .xyy-player-video-footer-controls-right{
 
+}
 
+video{
+    cursor: pointer;
+}
+
+.progress{
+    height: 3px!important;
+    background-color: #333332 !important;
+    width: 100%;
+
+}
+
+.progress:hover{
+    height: 5px!important;
+}
+
+.xyy-player-video-time-color{
+    color: #ffffff;
 }

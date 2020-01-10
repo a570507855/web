@@ -12,14 +12,18 @@
     <div class="xyy-player-video">
         <div class="xyy-player-video-header"></div>
         <div class="xyy-player-video-body">
-            <video src="/video/video.mp4"></video>
+            <video src="/video/video.mp4" width="100%"></video>
         </div>
         <div class="xyy-player-video-footer">
-            <div class="xyy-player-video-footer-progress"></div>
+            <div class="xyy-player-video-footer-progress">
+                <progress class="progress" min="0"  >
+                </progress>
+            </div>
             <div class="xyy-player-video-footer-controls xyy-flex-row">
                 <div class="xyy-player-video-footer-controls-left xyy-flex-row">
                     <div><i class="iconfont icon-player-play"></i></div>
                     <div><i class="iconfont icon-player-next"></i></div>
+                    <div class="xyy-player-video-time-color"><span id="playStartTime">00:00</span> / <span id="playEndTime">00:11</span></div>
                 </div>
                 <div class="xyy-player-video-footer-controls-right xyy-flex-row">
                     <div><i class="iconfont icon-player-setUp"></i></div>
@@ -36,18 +40,101 @@
 <script>
     var video = document.querySelector("video")
     var play = document.querySelector(".icon-player-play")
-    play.addEventListener("click", function (evt) {
-        if(this.classList.contains("icon-player-play")){
-            this.classList.replace("icon-player-play", "icon-player-pause")
-            video.play()
+    var progressDiv = document.querySelector(".xyy-player-video-footer-progress")
+    var progress = document.querySelector("progress")
+
+    play.addEventListener("click", playAndPause)
+
+    video.addEventListener("click", playAndPause)
+
+    video.addEventListener("timeupdate", timeupdate)
+
+    video.addEventListener("loadedmetadata", loadedmetadata)
+
+    video.addEventListener("seeked", seeked)
+
+    video.addEventListener("ended", ended)
+
+    progressDiv.addEventListener('click', progressChange)
+
+    /***
+     *  监听事件
+     */
+
+    function playAndPause() {
+        switchPlayPause()
+        video.paused ?video.play() : video.pause()
+
+    }
+
+    function timeupdate() {
+        var playStartTime = document.getElementById("playStartTime")
+        progress.value = video.currentTime
+        playStartTime.textContent = getTimeFormat(video.currentTime)
+    }
+
+    function loadedmetadata() {
+        var playEndTime = document.getElementById("playEndTime")
+        progress.max = video.duration
+        playEndTime.textContent = getTimeFormat(video.duration)
+
+    }
+    
+    function progressChange(e) {
+        video.paused ? play.click() : ''
+        var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth;
+        video.currentTime = pos * video.duration;
+    }
+
+    function seeked() {
+        var playStartTime = document.getElementById("playStartTime")
+        playStartTime.textContent = getTimeFormat(video.currentTime)
+    }
+
+    function ended() {
+        console.log(video.paused)
+        switchPlayPause()
+    }
+
+
+    /***
+     *  自定义方法
+     */
+    function getTimeFormat(_second) {
+        var flag = 'ms'
+        var hour = ''
+        var minute = '00'
+        var second = '00'
+        if(_second >= 3600){
+            flag = 'h'
+            hour =  Math.floor( _second / 3600)
+            _second = Math.floor(_second % 3600)
+        }
+        _second = Math.floor(_second)
+        if(_second<60){
+            second = toTwoPlaceTime(_second)
+
         }
         else {
-            this.classList.replace("icon-player-pause", "icon-player-play")
-            video.pause()
+            minute = toTwoPlaceTime(Math.floor(_second / 60))
+            second = toTwoPlaceTime(Math.floor(_second % 60))
         }
+        if(flag === 'h'){
+            return hour+ ':' + minute + ':' + second
+        }
+        else {
+            return minute + ':' + second
+        }
+    }
 
+    function toTwoPlaceTime(time) {
+        return time.toString().length === 1 ? "0" +time.toString() : time.toString()
+    }
 
-    })
+    function switchPlayPause() {
+        video.paused ? play.classList.replace("icon-player-play", "icon-player-pause") : play.classList.replace("icon-player-pause", "icon-player-play")
+    }
+    
 </script>
 </body>
 </html>
