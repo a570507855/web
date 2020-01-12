@@ -1,5 +1,7 @@
 package com;
 
+import org.springframework.web.socket.WebSocketSession;
+
 import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -10,6 +12,8 @@ public class MySessionContext {
     private static MySessionContext instance;
 
     private HashMap<String, HttpSession> sessionMap;
+
+    private HashMap<String, WebSocketSession> webSocketSessionMap;
 
     //构造函数为私有
     private MySessionContext(){
@@ -22,6 +26,8 @@ public class MySessionContext {
         }
         return instance;
     }
+
+    /************************session*****************************/
 
     public synchronized void addSession(HttpSession session){
         if(session != null){
@@ -55,5 +61,31 @@ public class MySessionContext {
             }
         }
         return  null;
+    }
+
+    /************************webSocketSession*****************************/
+
+    public synchronized void addSocketSession(WebSocketSession webSocketSession){
+        if(webSocketSession != null){
+            webSocketSessionMap.put("1",webSocketSession);
+        }
+    }
+
+    public synchronized void delSocketSession(WebSocketSession webSocketSession){
+        if(webSocketSession != null){
+            webSocketSessionMap.remove(webSocketSession.getId());
+        }
+    }
+
+    public synchronized WebSocketSession getSocketSession(String id){
+        return webSocketSessionMap.get(id);
+    }
+
+    public synchronized HashMap<String, WebSocketSession> getSocketSessionMap(){
+        return webSocketSessionMap;
+    }
+
+    public synchronized int getSocketSessionCount(){
+        return webSocketSessionMap.size();
     }
 }

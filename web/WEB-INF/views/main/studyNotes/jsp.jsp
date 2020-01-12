@@ -281,7 +281,7 @@
     <jsp:include page="/views/footer"/>
     <script>
         $(document).ready(function () {
-            console.log(getCookie())
+            console.log(getCookies())
             //delCookie("sid=15259207770")
         })
     </script>

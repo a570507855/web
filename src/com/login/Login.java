@@ -57,6 +57,7 @@ public class Login {
             session.setAttribute("accountNumber", accountNumber);
             session.setAttribute("username", user.getUsername());
             session.setAttribute("isMember", user.getIsMember());
+            session.setAttribute("uid", user.getId());
             session.setAttribute("sex", user.getSex());
             //设置session过期时间--默认30天
             session.setMaxInactiveInterval(60*60*24*30);
@@ -64,6 +65,7 @@ public class Login {
             //设置cookie过期时间--默认30天
             c.setMaxAge(60*60*24*30);
             c.setPath("/");
+            c.setHttpOnly(true);
             response.addCookie(c);
         }
         response.sendRedirect("/views/home");
