@@ -182,8 +182,7 @@
     }
 </script>
 <script>
-    let name = "xyy";
-    console.log(`my name is ${name}`)
 
 </script>
+
 </html>
