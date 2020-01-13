@@ -30,6 +30,7 @@
                             <a class="xyy-drop-a" href="https://www.w3school.com.cn/tags/index.asp" target="_blank">HTML5 参考手册</a>
                             <a class="xyy-drop-a" href="https://www.runoob.com/bootstrap4/bootstrap4-tutorial.html" target="_blank">Bootstrap4 教程</a>
                             <a class="xyy-drop-a" href="#">javascript</a>
+                            <a class="xyy-drop-a" href="/views/vue">vue.js</a>
                         </div>
                     </div>
                     <div class="xyy-drop-menu">

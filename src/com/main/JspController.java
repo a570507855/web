@@ -72,4 +72,10 @@ public class JspController {
         return "player";
     }
 
+    //vue
+    @RequestMapping("vue")
+    public String vue(){
+        return "main/vue/vue";
+    }
+
 }
