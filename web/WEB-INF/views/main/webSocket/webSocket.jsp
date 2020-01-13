@@ -1,4 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String webSocketPat = "ws://"+request.getServerName()+":"+request.getServerPort()+path+"/ws";
+    System.out.println(basePath);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,14 +43,13 @@
     </div>
 <jsp:include page="/views/footer"/>
 </body>
-<script>
-    const url = "ws://localhost:8081/ws";
+<script>/*"ws://localhost:8081/ws";*/
+    let url = "<%=webSocketPat%>";
     const chatinput = document.getElementById("chatinput");
     const chatRecord = document.getElementById("chatRecord");
     const charBg = document.getElementById("charBg");
     let socket;
     let username = '${sessionScope.username}';
-
     window.addEventListener("load", function () {
         socket = new WebSocket(url);
 

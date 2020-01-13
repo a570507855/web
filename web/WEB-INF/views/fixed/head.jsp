@@ -69,9 +69,11 @@
             <li class="nav-item">
                 <a class="xyy-nav-head-a" href="/views/player">播放器</a>
             </li>
+            <% if(session.getAttribute("username") != null) {%>
             <li class="nav-item">
                 <a class="xyy-nav-head-a" href="/webSocket/webSocket">网络编程</a>
             </li>
+            <% }%>
         </ul>
         <% if(session.getAttribute("username") == null) {%>
         <ul class="navbar-nav">
@@ -98,6 +100,4 @@
             </li>
         </ul>
         <% }%>
-
-
     </nav>

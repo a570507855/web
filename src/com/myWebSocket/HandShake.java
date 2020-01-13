@@ -21,7 +21,6 @@ public class HandShake implements HandshakeInterceptor {
         //这里进行一系列的健壮性判断 是否建立成功....
         ServletServerHttpRequest servletRequest = (ServletServerHttpRequest )request;
         HttpSession session = servletRequest.getServletRequest().getSession();
-        System.out.println(session.getId());
         attributes.put("sid", session.getId());
         attributes.put("username", session.getAttribute("username"));
         return true;
