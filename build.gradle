@@ -45,6 +45,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.springframework', name: 'spring-webmvc', version: '5.2.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-websocket', version: '5.2.1.RELEASE'
     compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.7.0'
     compile group: 'org.apache.logging.log4j', name: 'log4j-web', version: '2.12.1'
     compile group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.3'
@@ -60,7 +61,7 @@ dependencies {
     compile group: 'org.apache.poi', name: 'poi', version: '4.1.1'
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
 
-    compile group: 'org.springframework', name: 'spring-websocket', version: '5.2.1.RELEASE'
+
 }
 
 
