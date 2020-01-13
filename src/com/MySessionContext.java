@@ -3,7 +3,6 @@ package com;
 import org.springframework.web.socket.WebSocketSession;
 
 import javax.servlet.http.HttpSession;
-import java.util.Enumeration;
 import java.util.HashMap;
 
 //运用了单例模式--该类负责创建自己的对象，同时确保只有单个对象被创建
@@ -55,8 +54,7 @@ public class MySessionContext {
 
     public synchronized HttpSession isOnline(String accountNumber){
         for(HashMap.Entry<String, HttpSession> entry : sessionMap.entrySet()){
-            Enumeration<String> enumeration = entry.getValue().getAttributeNames();
-            if( enumeration.hasMoreElements()){
+            if(accountNumber.equals(entry.getValue().getAttribute("accountNumber"))){
                 return entry.getValue();
             }
         }
@@ -67,7 +65,7 @@ public class MySessionContext {
 
     public synchronized void addSocketSession(WebSocketSession webSocketSession){
         if(webSocketSession != null){
-            webSocketSessionMap.put("1",webSocketSession);
+            webSocketSessionMap.put(webSocketSession.getId(),webSocketSession);
         }
     }
 

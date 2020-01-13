@@ -38,7 +38,7 @@
 <jsp:include page="/views/footer"/>
 </body>
 <script>
-    const url = "ws://localhost:8080/ws";
+    const url = "ws://localhost:8081/ws";
     const chatinput = document.getElementById("chatinput");
     const chatRecord = document.getElementById("chatRecord");
     const charBg = document.getElementById("charBg");
@@ -68,7 +68,6 @@
                 "cmd":"chat",
                 "text":chatinput.value
             }));
-            chatRecord.innerHTML += "<p style='color: #FFFFFF'>" + username + "：" + chatinput.value + "</p>";
             chatinput.value = '';
             chatRecord.scrollTop = chatRecord.scrollHeight
             e.preventDefault()
@@ -86,12 +85,14 @@
     }
     
     function message(msg) {
-        if (typeof msg.data == "string") {
-            console.log(msg.data);
-        }
-        else {
-            alert("非文本消息");
-            console.log(msg.data);
+
+        let dataObj = JSON.parse(msg.data)
+        switch (dataObj.cmd) {
+            case "join":
+                break;
+            case "chat":
+                chatRecord.innerHTML += "<p style='color: #FFFFFF'>" + dataObj.username + "：" + dataObj.text + "</p>";
+                break;
         }
     }
     

@@ -1,11 +1,13 @@
 package com.myWebSocket;
 
-import com.MySessionContext;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /***
  * webSocket处理器
@@ -13,24 +15,35 @@ import java.util.HashMap;
 @Component
 public class MyWebSocketHandler implements WebSocketHandler {
 
-    private MySessionContext users = MySessionContext.getInstance();
+    /*private MySessionContext users = MySessionContext.getInstance();*/
+
+    private List<WebSocketSession> user2 = new ArrayList<>();
+
+/*    private HashMap<String, WebSocketSession> userMap = new HashMap<String, WebSocketSession>();*/
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         //TODO 建立连接后要干的事
-        System.out.println(session);
-        users.addSocketSession(session);
-        System.out.println(session);
+        user2.add(session);
     }
 
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         //TODO 消息处理
-        System.out.println(session.getAttributes());
-        System.out.println(message.getPayload());
-        System.out.println(session.getId());
         if(session.isOpen()){
-            session.sendMessage(message);
+            String username = session.getAttributes().get("username").toString();
+            String text = message.getPayload().toString();
+            Map<String,String> map = (Map<String, String>)JSONObject.parse(text);
+            if("join".equals(map.get("cmd"))){
+                map.replace("cmd", "online");
+                TextMessage msg = new TextMessage(map.toString());
+                session.sendMessage(msg);
+            }
+            else if("chat".equals(map.get("cmd"))) {
+                map.put("username", username);
+                TextMessage msg = new TextMessage(map.toString());
+                sendMessageToUsers(msg);
+            }
         }
         else{
             System.out.println("不在线");
@@ -45,6 +58,7 @@ public class MyWebSocketHandler implements WebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
         //TODO 关闭连接后要干的事
+        user2.remove(session);
         //users.delSocketSession(session);
     }
 
@@ -53,14 +67,20 @@ public class MyWebSocketHandler implements WebSocketHandler {
         return false;
     }
 
+    /***
+     * 可以用作发送广播，托送消息
+     * @param msg
+     * @throws IOException
+     */
     public void sendMessageToUsers(TextMessage msg) throws IOException {
-        for(HashMap.Entry<String, WebSocketSession> entry : users.getSocketSessionMap().entrySet()){
-            entry.getValue().sendMessage(msg);
+        for(WebSocketSession user : user2){
+            if(user.isOpen())
+                user.sendMessage(msg);
         }
-        //session.sendMessage();
     }
 
     public void sendMessageToUser(){
+
 
     }
 }
