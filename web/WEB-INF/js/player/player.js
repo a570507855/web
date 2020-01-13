@@ -1,7 +1,7 @@
 (function(){
     window.xyy = {}
 
-    var video = document.querySelector("video")
+    let video = document.querySelector("video");
 
 
 /*    var play = document.querySelector(".icon-player-play")
@@ -12,9 +12,7 @@
     return xyy
 })();
 
-(function () {
 
-})()
 
 
 
