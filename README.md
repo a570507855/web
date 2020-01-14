@@ -1,7 +1,7 @@
 # SSM项目<br>
 [项目链接](http://198.177.123.52 "个人主页")<br>
 后台：SSM框架<br>
-前端框架：jquery,layui,bootstra<br>
+前端框架：vue,jquery,layui,bootstra<br>
 构建工具：gradle<br>
 web服务器：tomcat<br>
 作者：xyy<br>
