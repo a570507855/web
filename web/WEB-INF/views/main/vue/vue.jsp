@@ -39,7 +39,9 @@
         el:"#app",
         data:{
             message:"信息",
-            username:"许亦勇",
+            xing:'许',
+            ming:"亦勇",
+            //username:"许亦勇",
             users:[
                 {"name":"许亦勇", "age":25},
                 {"name":"许亦雄", "age":27}
@@ -50,6 +52,13 @@
             fun:function () {
                 console.log("vue点击事件")
             }
+        },
+        //计算属性，可用方法替代，但是计算属性是基于响应式依赖进行缓存的，只有在响应式依赖发生改变时才会重新求值
+        computed:{
+            //默认getter
+            username: function () {
+                return this.xing + "" + this.ming
+            },
         },
         beforeCreate:function(){
             console.log("实例初始化之后，数据观测和事件配置之前的回调")
