@@ -6,6 +6,14 @@
     <meta name="description" content="">
     <title>vue.js</title>
     <jsp:include page="/views/resources"/>
+    <style>
+        .red{
+            color:red;
+        }
+        .green{
+            color: green;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="/views/head"/>
@@ -28,6 +36,7 @@
         </ol>
         <p>v-html<span v-html="html"></span></p>
         <form v-on:submit.prevent="onSubmit">...</form>
+        <p :class="classObject">class</p>
     </div>
 <jsp:include page="/views/footer"/>
 <script>
@@ -46,7 +55,11 @@
                 {"name":"许亦勇", "age":25},
                 {"name":"许亦雄", "age":27}
             ],
-            html:"<span style='color: red;'>红色</span>"
+            html:"<span style='color: red;'>红色</span>",
+            classObject:{
+                red:true,
+                green:false
+            }
         },
         methods:{
             fun:function () {
@@ -59,6 +72,22 @@
             username: function () {
                 return this.xing + "" + this.ming
             },
+            msg:{
+                get:function () {
+                    return this.xing + ':' + this.message
+                },
+                set:function (newVal) {
+                    let nameChat = newVal.split(":")
+                    this.xing = nameChat[0];
+                    this.message = nameChat[1];
+                }
+            }
+        },
+        //侦听器
+        watch:{
+            message:function (newMSG,oldMSG) {
+                console.log("旧消息："+oldMSG + " 新消息："+newMSG )
+            }
         },
         beforeCreate:function(){
             console.log("实例初始化之后，数据观测和事件配置之前的回调")
