@@ -71,6 +71,7 @@
     <mvc:resources location="/WEB-INF/video/" mapping="/video/**"/>
     <mvc:resources location="/WEB-INF/icon/" mapping="/icon/**"/>
     <mvc:resources location="/WEB-INF/vtt/" mapping="/vtt/**"/>
+    <mvc:resources location="/WEB-INF/manifest/" mapping="/manifest/**"/>
     <mvc:default-servlet-handler/>
 
     <!--<mvc:resources location="/" mapping="/js/**" />-->
