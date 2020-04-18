@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html manifest="/manifest/index.manifest">
 <head>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>标题</title>
+    <title>测试</title>
     <jsp:include page="/views/resources"/>
     <style>
         * {
@@ -12,7 +12,6 @@
             padding: 0;
             border: 0;
         }
-
         #progress {
             width: 1000px;
             height: 35px;
@@ -57,85 +56,29 @@
 <body>
 <jsp:include page="/views/head"/>
 
-<div id="progress">
-    <div class="bar">
-        <div class="hang"></div>
-        <span></span>
-    </div>
-    <div class="pro-value">0%</div>
-</div>
 
 </body>
 <script>
-    //创建XMLHttpRequest对象
-        var xhr = new XMLHttpRequest();
-        //配置请求方式、请求地址以及是否同步
-        xhr.open('POST', '/ceshi/video', true);
-        //设置请求结果类型为blob
-        xhr.responseType = 'blob';
-        //xhr.responseType = 'arraybuffer'
-        xhr.setRequestHeader("Range","bytes=0-54902995");
-        //请求成功回调函数
-        xhr.onload = function(e) {
-            if (this.status == 200) {//请求成功
-                //获取blob对象
-                var blob = this.response;
-                console.log(blob)
-                //获取blob对象地址，并把值赋给容器
-                $("#video").attr("src", URL.createObjectURL(blob));
-            }
-        };
-        xhr.send();
-/*    var isSupportMediaSource = 'MediaSource' in window
-    if(isSupportMediaSource){
-        console.log("浏览器支持流媒体")
+    if(sessionStorage.pagecount){
+        sessionStorage.pagecount = +sessionStorage.pagecount + 1;
     }
-    else{
-        console.log("浏览器不支持流媒体")
+    else {
+        sessionStorage.pagecount = 1;
     }
 
-    var mediaSource = new MediaSource()
-    var video = document.querySelector('video')
-    video.src = URL.createObjectURL(mediaSource)
+    if(localStorage.pagecount){
+        localStorage.pagecount = +localStorage.pagecount + 1;
+    }
+    else {
+        localStorage.pagecount = 1;
+    }
+    console.log(sessionStorage.pagecount);
+    console.log(localStorage.pagecount);
 
-    mediaSource.addEventListener("sourceopen",function (ev) {
-        // 这个奇怪的字符串后面再解释
-        var mime = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-
-        // 新建一个 sourceBuffer
-        var sourceBuffer = mediaSource.addSourceBuffer(mime);
-        console.log(mediaSource.readyState)
-        fetchBuffer('/video/video.mp4', function (buffer) {
-            console.log(buffer)
-            sourceBuffer.addEventListener('updateend', function (_) {
-                console.log(sourceBuffer.updating)
-                console.log(mediaSource.readyState)
-                if (!sourceBuffer.updating && mediaSource.readyState === 'open') {
-                    mediaSource.endOfStream();
-                    video.play();
-                }
-
-                //console.log(mediaSource.readyState); // ended
-            });
-            sourceBuffer.appendBuffer(buffer);
-
-        })
-    })
-
-    // 以二进制格式请求某个url
-    function fetchBuffer (url, callback) {
-        var xhr = new XMLHttpRequest;
-        xhr.open('get', url);
-        xhr.responseType = 'blob';
-        xhr.onload = function () {
-            callback(xhr.response);
-        };
-        xhr.send();
-    }*/
 
 </script>
 <script>
-    window.onload = function () {
+    /*window.onload = function () {
         // 1. 获取页面标签
         var progress = document.getElementById('progress');
         var bar = progress.children[0];
@@ -179,7 +122,7 @@
             }
             return false;
         }
-    }
+    }*/
 </script>
 <script>
 

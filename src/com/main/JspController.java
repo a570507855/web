@@ -78,4 +78,10 @@ public class JspController {
         return "main/vue/vue";
     }
 
+    //web worker
+    @RequestMapping("worker")
+    public String worker(){
+        return "main/webWorker/worker";
+    }
+
 }

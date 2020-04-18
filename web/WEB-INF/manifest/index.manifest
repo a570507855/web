@@ -1,0 +1,24 @@
+CACHE MANIFEST
+#应用程序缓存
+#需要缓存的文件
+#2020-04-17 14:34
+/css/base.css
+/js/layui-v2.5.5/layui/css/layui.css
+/js/bootstrap-4.4.1/css/bootstrap.min.css
+//at.alicdn.com/t/font_1597879_jdl9rnbdpsi.css
+/js/jquery-3.4.1.min.js
+/js/layui-v2.5.5/layui/layui.js
+/js/bootstrap-4.4.1/js/bootstrap.min.js
+/js/bootstrap-4.4.1/js/bootstrap.bundle.min.js
+/js/base.js
+/js/jquery.validate.min.js
+/js/vue/vue.js
+/icon/favicon.ico
+/icon/account.svg
+
+NETWORK:
+#不被缓存的文件
+
+
+FALLBACK:
+#当页面无法访问时的回退页面
