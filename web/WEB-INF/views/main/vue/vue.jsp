@@ -37,6 +37,7 @@
         <p>v-html<span v-html="html"></span></p>
         <form v-on:submit.prevent="onSubmit">...</form>
         <p :class="classObject">class</p>
+        <div  @keyup.alt.67="fun">1</div>
     </div>
 <jsp:include page="/views/footer"/>
 <script>
