@@ -2,7 +2,6 @@ package com.main;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,17 +46,5 @@ public class Ceshi {
     }
 
 
-    @RequestMapping("serverSent")
-    @ResponseBody
-    public void userSent(HttpServletResponse response,HttpServletRequest request)throws IOException{
-        response.addHeader("Connection","keep-alive");
-        response.addHeader("Cache-Control","no-cache");
-        response.setContentType("text/event-stream");
-        response.setCharacterEncoding("UTF-8");
-        PrintWriter writer = response.getWriter();
-        writer.write( "data: hello worker \n\n" );
-        writer.close();
 
-        System.out.println("222");
-    }
 }

@@ -39,22 +39,9 @@
     else {
         console.log("浏览器不支持worker")
     }
-    let source=new EventSource("/ceshi/serverSent");
-    source.addEventListener("message", function (e) {
-            console.log(e.data)
-    })
-
-
-
-
-/*    setInterval(function(){
-        ++count_one;
-        main.innerHTML = count_one;
-    },500)
-    setInterval(function(){
-        ++count_two;
-        worker.innerHTML = count_one;
-    },500);*/
+/*    while (count !== 10000000){
+        main.innerText = ++count;
+    }*/
 
 
 
