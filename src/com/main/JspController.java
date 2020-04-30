@@ -84,4 +84,9 @@ public class JspController {
         return "main/webWorker/worker";
     }
 
+    @RequestMapping("canvas")
+    public String canvas(){
+        return "main/canvas/canvas";
+    }
+
 }

@@ -75,6 +75,9 @@
                 <a class="xyy-nav-head-a" href="/webSocket/webSocket">网络编程</a>
             </li>
             <% }%>
+            <li class="nav-item">
+                <a class="xyy-nav-head-a" href="/views/canvas">canvas</a>
+            </li>
         </ul>
         <% if(session.getAttribute("username") == null) {%>
         <ul class="navbar-nav">
