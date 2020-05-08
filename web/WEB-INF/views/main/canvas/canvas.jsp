@@ -115,10 +115,7 @@
     }
     
     function move(snake,food) {
-        let add_term = {
-            x:0,
-            y:0
-        };
+        let add_term = {x:0, y:0};
         switch (snake.direction) {
             case "up":
                 clear(snake);
