@@ -5,7 +5,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta type="text/html">
-    <title>测试</title>
+    <title>贪食蛇</title>
     <jsp:include page="/views/resources"/>
     <style>
         .content{

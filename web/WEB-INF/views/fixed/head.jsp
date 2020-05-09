@@ -76,7 +76,10 @@
             </li>
             <% }%>
             <li class="nav-item">
-                <a class="xyy-nav-head-a" href="/views/canvas">canvas</a>
+                <a class="xyy-nav-head-a" href="/views/snake">贪食蛇</a>
+            </li>
+            <li class="nav-item">
+                <a class="xyy-nav-head-a" href="/views/CSS3_3D">3D特效</a>
             </li>
         </ul>
         <% if(session.getAttribute("username") == null) {%>

@@ -84,9 +84,14 @@ public class JspController {
         return "main/webWorker/worker";
     }
 
-    @RequestMapping("canvas")
-    public String canvas(){
-        return "main/canvas/canvas";
+    @RequestMapping("snake")
+    public String snake(){
+        return "main/canvas/snake";
+    }
+
+    @RequestMapping("CSS3_3D")
+    public String CSS3_3D(){
+        return "main/3D/CSS3_3D";
     }
 
 }
