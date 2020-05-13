@@ -94,4 +94,9 @@ public class JspController {
         return "main/3D/CSS3_3D";
     }
 
+    @RequestMapping("cube_3D")
+    public String cube_3D(){
+        return "main/3D/cube_3D";
+    }
+
 }

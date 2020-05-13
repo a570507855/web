@@ -81,6 +81,9 @@
             <li class="nav-item">
                 <a class="xyy-nav-head-a" href="/views/CSS3_3D">3D特效</a>
             </li>
+            <li class="nav-item">
+                <a class="xyy-nav-head-a" href="/views/cube_3D">正方体</a>
+            </li>
         </ul>
         <% if(session.getAttribute("username") == null) {%>
         <ul class="navbar-nav">

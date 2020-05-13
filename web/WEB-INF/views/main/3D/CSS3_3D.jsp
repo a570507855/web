@@ -38,6 +38,7 @@
             text-align: center;
             color: #333;
             font-size: 100px;
+            user-select:none;
         }
         .box_one{
             transform: translateZ(60px);
