@@ -38,6 +38,7 @@
        this.y = y;
        this.z = z;
     }
+    ctx.rotate(5)
     let cube_point = {
         point_center:new point(250,250,0),
         point_back_leftTop:new point(200,200,-50),

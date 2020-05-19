@@ -99,4 +99,9 @@ public class JspController {
         return "main/3D/cube_3D";
     }
 
+    @RequestMapping("demo1")
+    public String demo1(){
+        return "main/3D/dmoe1";
+    }
+
 }
