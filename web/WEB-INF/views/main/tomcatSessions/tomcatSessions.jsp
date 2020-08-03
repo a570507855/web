@@ -51,7 +51,7 @@
                 {type: 'checkbox', fixed: 'left'}
                 , {field: 'sessionId', title: '会话id', minWidth: 310}
                 , {field: 'username', title: '用户名', minWidth: 160}
-                , {field: 'isMember', title: '会员',templet:'<div>{{d.isMember ? "是" : "否"}}</div>', minWidth: 160}
+               /* , {field: 'isMember', title: '会员',templet:'<div>{{d.isMember ? "是" : "否"}}</div>', minWidth: 160}*/
                 , {field: 'maxInactiveString', title: '过期时限', minWidth: 160}
                 , {field: 'creationTime', title: '创建时间', minWidth: 180}
                 , {field: 'lastAccessDate', title: '最后访问时间', minWidth: 180}
